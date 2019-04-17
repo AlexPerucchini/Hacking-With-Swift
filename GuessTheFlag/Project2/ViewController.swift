@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         // not parameters are passed in since the default acttion is nil
         askQuestion()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
@@ -86,6 +87,13 @@ class ViewController: UIViewController {
         }
         
         present(ac, animated: true)
+    }
+    
+    @objc func shareTapped() {
+        let vc = UIActivityViewController(activityItems: ["\(score)"], applicationActivities: nil)
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    
     }
 }
 
