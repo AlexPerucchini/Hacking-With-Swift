@@ -18,14 +18,14 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Image: " + selectedImage! + " No: \(selectedPictureNumber) of \(totalPictures)"
+        title = selectedImage! + " (\(selectedPictureNumber) of \(totalPictures))"
+        // don't inherit the large title. Apple recommends this approach
+        navigationItem.largeTitleDisplayMode  = .never
         
         //Project 3 create a new bar button share icon
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         
-        // don't inherit the large title. Apple recommends this approach
-        navigationItem.largeTitleDisplayMode  = .never
-        
+        // load the selected image into UIImageView since it's an optional we need to uwrap it
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
         }
@@ -48,12 +48,10 @@ class DetailViewController: UIViewController {
             print("No image found")
             return
         }
-        
         // pass in the images to share to the activityItems
         let vc = UIActivityViewController(activityItems: ["\(selectedImage!)", image], applicationActivities: [])
         // show in the ipad
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        
         present(vc, animated: true)
     }
 }

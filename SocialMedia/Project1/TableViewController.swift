@@ -15,7 +15,7 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // let's get the pictures
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -25,7 +25,7 @@ class TableViewController: UITableViewController {
         
         for item in items {
             if item.hasPrefix("nssl") {
-                // this is the picture to load
+                // we found the the picture to load
                 pictures.append(item)
             }
         }
@@ -33,7 +33,7 @@ class TableViewController: UITableViewController {
         pictures = pictures.sorted()
     }
 
-    // override means the function is changing the parent view
+    // override means the function is changing the parent view. How many rows do we need to display?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection
         section: Int) -> Int {
         return pictures.count
