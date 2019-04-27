@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
+    @IBOutlet var scoreButton: UIBarButtonItem!
     
     var countries =  [String]()
     var score = 0
@@ -32,10 +33,12 @@ class ViewController: UIViewController {
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
+        // show the score in the right bar button when tapped
+        scoreButton = UIBarButtonItem(title: "Score", style: .done, target: self, action: #selector(shareTapped))
+        self.navigationItem.rightBarButtonItem = scoreButton
+        
         // not parameters are passed in since the default acttion is nil
         askQuestion()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
@@ -48,7 +51,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         // display the country name in the title
-        title = countries[correctAnswer].uppercased() + " - Score: \(score)"
+        title = "Guess the flag: " + countries[correctAnswer].uppercased()
         
         questionsAsked += 1
         print(questionsAsked)
@@ -64,6 +67,9 @@ class ViewController: UIViewController {
         var title: String
         var flag: String
         
+        // reset the rightBarButtonTitle
+        scoreButton.title = "Score"
+        
         // the connected buttons are tagged 0/1/2
         if sender.tag == correctAnswer {
             title = "Correct"
@@ -76,7 +82,7 @@ class ViewController: UIViewController {
         
         let ac: UIAlertController
 
-        if questionsAsked <= 3 {
+        if questionsAsked <= 10 {
             ac = UIAlertController(title: title, message: "Let's keep playing!", preferredStyle: .alert)
             
             // review closure. Continue the game and call askQuestion. The handler askQuestion without parens means here is the method to run BUT askQuestions() will execute the method and it will tell you the method to run... which is not what we want
@@ -90,10 +96,7 @@ class ViewController: UIViewController {
     }
     
     @objc func shareTapped() {
-        let vc = UIActivityViewController(activityItems: ["\(score)"], applicationActivities: nil)
-        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(vc, animated: true)
-    
+        scoreButton.title = "\(score)"
     }
 }
 
