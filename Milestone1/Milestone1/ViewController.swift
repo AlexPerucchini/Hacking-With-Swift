@@ -59,9 +59,8 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = countries[indexPath.row]
-            // split the  countries array and get the country name
-            let country = countries[indexPath.row].components(separatedBy: "@").first
-            vc.countryName = country
+            // split the  countries array and get the country name for the Detail View title
+            vc.countryName = countries[indexPath.row].components(separatedBy: "@").first
             
             navigationController?.pushViewController(vc, animated: true)
         }

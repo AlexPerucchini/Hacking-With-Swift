@@ -96,6 +96,7 @@ class ViewController: UIViewController {
     }
     
     @objc func shareTapped() {
+        // refactor to an alert action
         scoreButton.title = "\(score)"
     }
 }

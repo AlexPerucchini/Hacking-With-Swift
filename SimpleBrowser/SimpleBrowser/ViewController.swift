@@ -17,8 +17,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     override func loadView() {
         webView = WKWebView()
-        // we need to add the WKNavigationDelegate to the class in order to prevent
-        // compiler errors
+        // we need to add the WKNavigationDelegate to the class in order to prevent compiler errors
         webView.navigationDelegate = self
         view = webView
     }
@@ -87,7 +86,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     // allow only websites on our list of approved sites. This method calls the decisionHandler closure and
     // expects an allow or cancel response based on the site host
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            let url = navigationAction.request.url
+        let url = navigationAction.request.url
         
         if let host = url?.host {
             for website in websites {
