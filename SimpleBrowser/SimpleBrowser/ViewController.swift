@@ -94,6 +94,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
                     decisionHandler(.allow)
                     // set opacity
                     view.alpha = CGFloat(1.0)
+                    // exit the function
                     return
                 }
             }
