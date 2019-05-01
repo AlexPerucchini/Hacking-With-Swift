@@ -13,8 +13,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
     var progressView: UIProgressView!
-    var websites = ["google.com", "apple.com", "hackingwithswift.com", "developer.apple.com"]
-
+    var website:String?
+    
     override func loadView() {
         webView = WKWebView()
         // we need to add the WKNavigationDelegate to the class in order to prevent compiler errors
@@ -24,8 +24,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // navigation bar button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
+        guard let titleToLoad = website else { return }
+        title = titleToLoad
+        // don't inherit the large title. Apple recommends this approach
+        navigationItem.largeTitleDisplayMode  = .never
+    
         // flexibleSpace acts a container spring for buttons
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         // create a refresh button for the webView
@@ -38,35 +41,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         let progressButton = UIBarButtonItem(customView: progressView)
         // load buttons on the toolbar
-        toolbarItems = [back, progressButton, forward, spacer, refresh]
+        toolbarItems = [spacer, back, progressButton, forward, spacer, refresh]
         navigationController?.isToolbarHidden = false
-        
+    
         // we need values for the progress bar
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        
         // load the default webView
-        let url = URL(string: "https:" + websites[0])!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
-    }
-    
-    @objc func openTapped() {
-        let ac = UIAlertController(title: "Open page...", message: nil, preferredStyle: .actionSheet)
-        
-        for website in websites {
-            ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
-        }
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        // used by ipad for anchoring the button
-        ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(ac, animated: true)
-    }
-    
-    func openPage(action: UIAlertAction) {
-        // notice the double unwrap(!). We're unwrapping the title and the URL string
-        guard let actionTitle = action.title else { return }
-        guard let url = URL(string: "https://" + actionTitle) else { return }
-        // print(url)
+        guard let websiteToLoad = website else { return }
+        let url = URL(string: "https:" + websiteToLoad)!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
@@ -82,21 +65,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
             progressView.progress = Float(webView.estimatedProgress)
         }
     }
-    
+
     // allow only websites on our list of approved sites. This method calls the decisionHandler closure and
     // expects an allow or cancel response based on the site host
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let url = navigationAction.request.url
-        
         if let host = url?.host {
-            for website in websites {
-                if host.contains(website) {
-                    decisionHandler(.allow)
-                    // set opacity
-                    view.alpha = CGFloat(1.0)
-                    // exit the function
-                    return
-                }
+            if host.contains(website!) {
+                decisionHandler(.allow)
+                // set opacity
+                view.alpha = CGFloat(1.0)
+                // exit the function
+                return
             }
         }
         // site is not allowed
