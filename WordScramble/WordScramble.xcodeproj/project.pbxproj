@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2E25672279BA5800872491 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E25662279BA5800872491 /* start.txt */; };
 		0A5F878D226A6525003BDFDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F878C226A6525003BDFDC /* AppDelegate.swift */; };
 		0A5F878F226A6525003BDFDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F878E226A6525003BDFDC /* ViewController.swift */; };
 		0A5F8792226A6526003BDFDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5F8790226A6526003BDFDC /* Main.storyboard */; };
 		0A5F8794226A6527003BDFDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5F8793226A6527003BDFDC /* Assets.xcassets */; };
 		0A5F8797226A6527003BDFDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5F8795226A6527003BDFDC /* LaunchScreen.storyboard */; };
-		0A5F87A3226A700A003BDFDC /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A5F87A2226A700A003BDFDC /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A2E25652279B9EE00872491 /* start.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = start.txt; path = "../../../Downloads/HackingWithSwift-master/project5-files/start.txt"; sourceTree = "<group>"; };
+		0A2E25662279BA5800872491 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 		0A5F8789226A6525003BDFDC /* WordScramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordScramble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5F878C226A6525003BDFDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A5F878E226A6525003BDFDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +25,6 @@
 		0A5F8793226A6527003BDFDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A5F8796226A6527003BDFDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A5F8798226A6527003BDFDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A5F87A2226A700A003BDFDC /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.txt; path = "../../../../Downloads/HackingWithSwift-master/project5-files/start.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		0A5F8780226A6525003BDFDC = {
 			isa = PBXGroup;
 			children = (
+				0A2E25652279B9EE00872491 /* start.txt */,
 				0A5F878B226A6525003BDFDC /* WordScramble */,
 				0A5F878A226A6525003BDFDC /* Products */,
 			);
@@ -56,7 +58,7 @@
 		0A5F878B226A6525003BDFDC /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
-				0A5F87A2226A700A003BDFDC /* start.txt */,
+				0A2E25662279BA5800872491 /* start.txt */,
 				0A5F878C226A6525003BDFDC /* AppDelegate.swift */,
 				0A5F878E226A6525003BDFDC /* ViewController.swift */,
 				0A5F8790226A6526003BDFDC /* Main.storyboard */,
@@ -126,7 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A5F8797226A6527003BDFDC /* LaunchScreen.storyboard in Resources */,
-				0A5F87A3226A700A003BDFDC /* start.txt in Resources */,
+				0A2E25672279BA5800872491 /* start.txt in Resources */,
 				0A5F8794226A6527003BDFDC /* Assets.xcassets in Resources */,
 				0A5F8792226A6526003BDFDC /* Main.storyboard in Resources */,
 			);

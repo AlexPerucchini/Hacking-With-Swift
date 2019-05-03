@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New Game", style: .done, target: self, action: #selector(startGame))
         
+        // find out start.txt file with the words
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 allWords = startWords.components(separatedBy: "\n")
@@ -52,10 +53,11 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: "Enter Answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
+        // closure to handle user input
         let submitAction = UIAlertAction(title: "Submit", style: .default) {
-            // closure to handle user input
             [weak self, weak ac] action in
             guard let answer = ac?.textFields?[0].text else { return }
+            // call the submit action
             self?.submit(answer)
         }
         ac.addAction(submitAction)
@@ -69,12 +71,14 @@ class ViewController: UITableViewController {
         
         guard let title = title else { return }
         
-        if isPossible(word: lowerAnswer) && lowerAnswer != "" {
+        if isPossible(word: lowerAnswer) && (lowerAnswer != "") {
             if isOriginal(word:lowerAnswer) && lowerAnswer != title.lowercased() {
                 if isReal(word: lowerAnswer) {
+                    // get the first 3 characters of the word
+                    let wordStart = title.prefix(3)
                     // check for word smaller than or equal to 3 characters
-                    if lowerAnswer.utf16.count <= 3 {
-                        errorTitle = "Word is too small"
+                    if (lowerAnswer.utf16.count <= 3) || (wordStart == lowerAnswer) {
+                        errorTitle = "\(lowerAnswer) is too small or the start word"
                         errorMessage = "Use a word longer than 3 characters"
                         showErrorMessage(errorTitle: errorTitle, errorMessage: errorMessage)
                     // all good ...
@@ -89,19 +93,19 @@ class ViewController: UITableViewController {
                     }
                 } else {
                     // Alert the user that the word is not a real word
-                    errorTitle = "Word not recognized"
+                    errorTitle = "\(lowerAnswer) is not recognized"
                     errorMessage = "Use a real word"
                     showErrorMessage(errorTitle: errorTitle, errorMessage: errorMessage)
                 }
             } else {
                 // Alert the user that the word was already used
-                errorTitle = "Word is not original"
+                errorTitle = "\(lowerAnswer) is not original"
                 errorMessage = "Be original and use a different word"
                 showErrorMessage(errorTitle: errorTitle, errorMessage: errorMessage)
             }
         } else {
             // Alert the user that the word cannot be constructed using the existing letters
-            errorTitle = "Word not possible"
+            errorTitle = "\(lowerAnswer) is not possible"
             errorMessage = "You cannot spell that word from \(title.lowercased())"
             showErrorMessage(errorTitle: errorTitle, errorMessage: errorMessage)
         }
@@ -123,10 +127,12 @@ class ViewController: UITableViewController {
         }
         return true
     }
+    
     // did we use the word before?
     func isOriginal(word: String) -> Bool {
         return !usedWords.contains(word)
     }
+    
     // is the word a valid english word?
     func isReal(word: String) -> Bool {
         let checker = UITextChecker()
