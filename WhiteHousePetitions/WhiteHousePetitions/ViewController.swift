@@ -13,11 +13,19 @@ class ViewController: UITableViewController {
     
     var petitions: [Petition] = []
     var urlString: String = ""
+    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
 
     override func viewDidLoad() {
         super.viewDidLoad()
     
         title = "WeThePeople"
+        
+        // loading indicator
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
         
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(showInfo), for: .touchUpInside)
@@ -27,10 +35,10 @@ class ViewController: UITableViewController {
         
         if navigationController?.tabBarItem.tag == 0 {
             // "https://www.hackingwithswift.com/samples/petitions-1.json"
-            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=200"
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=500"
         } else {
             // "https://www.hackingwithswift.com/samples/petitions-2.json"
-            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=200"
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=500"
         }
         
         parseURL(urlString)
@@ -41,6 +49,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         let petition = petitions[indexPath.row]
@@ -91,7 +100,6 @@ class ViewController: UITableViewController {
         } else {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?title=\(titleSearch)"
         }
-        
         parseURL(urlString)
     }
     
@@ -108,12 +116,12 @@ class ViewController: UITableViewController {
     
     func parse(json: Data) {
         let decoder = JSONDecoder()
-        
+        loadingIndicator.startAnimating()
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
             tableView.reloadData()
+            // dismiss loading indicator
+            dismiss(animated: false, completion: nil)
         }
     }
-    
 }
-
