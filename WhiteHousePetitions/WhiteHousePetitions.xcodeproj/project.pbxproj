@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A3DCF0922830FD6009AB209 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DCF0822830FD6009AB209 /* ProgressHUD.swift */; };
 		0A92DA642280E491003F432A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92DA632280E491003F432A /* AppDelegate.swift */; };
 		0A92DA662280E491003F432A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92DA652280E491003F432A /* ViewController.swift */; };
 		0A92DA692280E491003F432A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A92DA672280E491003F432A /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A3DCF0822830FD6009AB209 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		0A92DA602280E491003F432A /* WhiteHousePetitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteHousePetitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A92DA632280E491003F432A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A92DA652280E491003F432A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				0A92DA632280E491003F432A /* AppDelegate.swift */,
 				0A92DA652280E491003F432A /* ViewController.swift */,
+				0A3DCF0822830FD6009AB209 /* ProgressHUD.swift */,
 				0A92DA792280F552003F432A /* DetailViewController.swift */,
 				0A92DA752280ECB4003F432A /* Petition.swift */,
 				0A92DA772280ED3F003F432A /* Petitions.swift */,
@@ -146,6 +149,7 @@
 			files = (
 				0A92DA662280E491003F432A /* ViewController.swift in Sources */,
 				0A92DA782280ED3F003F432A /* Petitions.swift in Sources */,
+				0A3DCF0922830FD6009AB209 /* ProgressHUD.swift in Sources */,
 				0A92DA7A2280F552003F432A /* DetailViewController.swift in Sources */,
 				0A92DA642280E491003F432A /* AppDelegate.swift in Sources */,
 				0A92DA762280ECB4003F432A /* Petition.swift in Sources */,
