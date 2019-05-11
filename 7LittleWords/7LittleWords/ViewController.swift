@@ -15,8 +15,9 @@ class ViewController: UIViewController {
     var scoreLabel: UILabel!
     var levelLabel: UILabel!
     var letterButtons = [UIButton]()
-    
+    // stores all buttons activated by the user
     var activatedButtons = [UIButton]()
+    // holds the correct answers
     var solutions = [String]()
     //property observer
     var score = 0 {
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
         scoreLabel.textAlignment = .right
         scoreLabel.text = "Score: 0"
         view.addSubview(scoreLabel)
-        // Clues
+        // clues
         cluesLabel = UILabel()
         cluesLabel.translatesAutoresizingMaskIntoConstraints = false
         cluesLabel.font = UIFont.systemFont(ofSize: 24)
@@ -76,6 +77,7 @@ class ViewController: UIViewController {
         let submit = UIButton(type: .system)
         submit.translatesAutoresizingMaskIntoConstraints = false
         submit.setTitle("Submit", for: .normal)
+        // connect the button to the view
         submit.addTarget(self, action: #selector(submitTapped(_:)), for: .touchUpInside)
         submit.layer.cornerRadius = 10
         submit.setTitleColor(.white, for: .normal)
@@ -84,6 +86,7 @@ class ViewController: UIViewController {
         
         let clear = UIButton(type: .system)
         clear.translatesAutoresizingMaskIntoConstraints = false
+        // connect the button to the view
         clear.addTarget(self, action: #selector(clearTapped(_:)), for: .touchUpInside)
         clear.setTitle("Clear", for: .normal)
         clear.layer.cornerRadius = 10
@@ -93,7 +96,8 @@ class ViewController: UIViewController {
         
         let reset = UIButton(type: .system)
         reset.translatesAutoresizingMaskIntoConstraints = false
-        reset.addTarget(self, action: #selector(resetGame), for: .touchUpInside)
+        // connect the button to the view call resetGame
+        reset.addTarget(self, action: #selector(resetGame(_:)), for: .touchUpInside)
         reset.setTitle("Reset Game", for: .normal)
         reset.setTitleColor(.white, for: .normal)
         reset.layer.cornerRadius = 10
@@ -107,13 +111,17 @@ class ViewController: UIViewController {
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
+            // reset button
             reset.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 5),
             reset.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 5),
             reset.widthAnchor.constraint(equalToConstant: 100),
+            // scoreLabel
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 5),
             scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            // levelLabel
             levelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 5),
             levelLabel.trailingAnchor.constraint(equalTo: scoreLabel.trailingAnchor, constant: -100),
+            // cluesLable
             // pin the top of the clues label to the bottom of the score label
             cluesLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor),
             // pin the leading edge of the clues label to the leading edge of our layout margins, adding 100 for some space
@@ -227,27 +235,40 @@ class ViewController: UIViewController {
         }
         activatedButtons.removeAll()
     }
-    
+    // 1) load level files
+    // 2) assign titles to buttons
     func loadLevel() {
+        // holds the full string in the cluesLabel
         var clueString = ""
+        // holds the text shown in the answerLabel
         var solutionString = ""
+        // hold the letter parts HA UNT EDd
         var letterBits = [String]()
-        
+        // loadl the level files
         if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
             if let levelContents = try? String(contentsOf: levelFileURL) {
+                // great, we got the content. Now get the lines:
+                // HA|UNT|ED: Ghosts in residence
+                // LE|PRO|SY: A Biblical skin disease
+                // and shuffle the results
                 var lines = levelContents.components(separatedBy: "\n")
                 lines.shuffle()
                 
                 for (index, line) in lines.enumerated() {
+                    // split answers and clues
                     let parts = line.components(separatedBy: ": ")
+                    // array of answers
                     let answer = parts[0]
+                    // array of clues
                     let clue = parts[1]
-                    
+                    // build the clues string
                     clueString += "\(index + 1). \(clue)\n"
-                    
+                    // turn HA|UN|TED into HAUNTED...
                     let solutionWord = answer.replacingOccurrences(of: "|", with: "")
-                    solutionString += "\(solutionWord.count) letters\n"
+                    // and append the solution word to the solutions array
                     solutions.append(solutionWord)
+                    // show the user a hint for the clues i.e 7 Letters
+                    solutionString += "\(solutionWord.count) letters\n"
                     
                     let bits = answer.components(separatedBy: "|")
                     letterBits += bits
@@ -255,13 +276,13 @@ class ViewController: UIViewController {
             }
         }
         
-        // trim out white spaces in clues and answer
+        // trim out white spaces in clues and answer and set the text label to be displayed
         cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
         answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
-        
+        // randomize the letterBits
         letterBits.shuffle()
-        
         // count letter bits to letter buttons and set buttons titles
+        // we can only hold 20 letter bits i.e HAU NT ED
         if letterBits.count == letterButtons.count {
             for i in 0 ..< letterButtons.count {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)
@@ -281,11 +302,15 @@ class ViewController: UIViewController {
             btn.isHidden = false
         }
     }
-    
-    @objc func resetGame() {
+    // this code could be refactored... it's basically same as levelUp
+    @objc func resetGame(_ sender: UIButton) {
+        score = 0
+        
         level = 1
         levelLabel.text = "Level: \(level)"
+        
         solutions.removeAll(keepingCapacity: false)
+        
         loadLevel()
         
         for btn in letterButtons {
