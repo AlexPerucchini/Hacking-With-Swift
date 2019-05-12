@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         levelLabel.textAlignment = .right
         levelLabel.text = "Level: 1"
         view.addSubview(levelLabel)
+        
         // score label
         scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -46,6 +47,7 @@ class ViewController: UIViewController {
         scoreLabel.textAlignment = .right
         scoreLabel.text = "Score: 0"
         view.addSubview(scoreLabel)
+        
         // clues
         cluesLabel = UILabel()
         cluesLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +57,7 @@ class ViewController: UIViewController {
         // we need to be able to stretch and compress the view as needed
         cluesLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(cluesLabel)
+        
         // answer label
         answersLabel = UILabel()
         answersLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +68,7 @@ class ViewController: UIViewController {
         // we need to be able to stretch and compress the view as needed
         answersLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(answersLabel)
+        
         // current answer
         currentAnswer = UITextField()
         currentAnswer.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +107,6 @@ class ViewController: UIViewController {
         reset.layer.cornerRadius = 10
         reset.layer.backgroundColor = UIColor.darkGray.cgColor
         view.addSubview(reset)
-        
         
         // container view for the buttons
         let buttonsView = UIView()
@@ -175,7 +178,7 @@ class ViewController: UIViewController {
                 // connect button to letterTapped
                 letterButton.addTarget(self, action: #selector(letterTapped(_:)), for: .touchUpInside)
                 // give the button some temporary text so we can see it on-screen
-                letterButton.setTitle("WWW", for: .normal)
+                letterButton.setTitle("???", for: .normal)
                 // calculate the frame of this button using its column and row
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
@@ -192,20 +195,40 @@ class ViewController: UIViewController {
         loadLevel()
     }
     
+    // It adds a safety check to read the title from the tapped button,or exit if it didn’t have one for some reason
+    // Appends that button title to the player’s current answer
+    // Appends the button to the activatedButtons array
+    // Hides the button that was tapped
     @objc func letterTapped(_ sender: UIButton) {
         guard let buttonTitle = sender.titleLabel?.text else { return }
+        // add the button title to the current Answer
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
+        // the button has been used
         activatedButtons.append(sender)
         sender.isHidden = true
+    }
+    
+    @objc func clearTapped(_ sender: UIButton) {
+        currentAnswer.text = ""
+        
+        // show buttons again
+        for button in activatedButtons {
+            button.isHidden = false
+        }
+        
+        // empyt the activatedButtons array
+        activatedButtons.removeAll()
     }
     
     @objc func submitTapped(_ sender: UIButton) {
         guard let answerText = currentAnswer.text else { return }
         
+         // find aswerText in solution array
         if let solutionPosition = solutions.firstIndex(of: answerText) {
             activatedButtons.removeAll()
-        
+            // split answer
             var splitAnswers = answersLabel.text?.components(separatedBy: "\n")
+            // replace 7 leetter with wthe the actual solution text
             splitAnswers?[solutionPosition] = answerText
             answersLabel.text = splitAnswers?.joined(separator: "\n")
             
@@ -218,8 +241,8 @@ class ViewController: UIViewController {
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        // submited answer is not part of the solution text
         } else {
-            // submited answer is not part of the solution text
             let ac = UIAlertController(title: "Ooopsy", message: "Not correct keep trying!", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
             present(ac, animated: true)
@@ -227,14 +250,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func clearTapped(_ sender: UIButton) {
-        currentAnswer.text = ""
-        
-        for button in activatedButtons {
-            button.isHidden = false
-        }
-        activatedButtons.removeAll()
-    }
     // 1) load level files
     // 2) assign titles to buttons
     func loadLevel() {
@@ -275,7 +290,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
         // trim out white spaces in clues and answer and set the text label to be displayed
         cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
         answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
