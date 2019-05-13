@@ -20,13 +20,6 @@ class ViewController: UITableViewController {
     
         title = "WeThePeople"
         
-        // loading indicator
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(showInfo), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
@@ -40,8 +33,8 @@ class ViewController: UITableViewController {
             // "https://www.hackingwithswift.com/samples/petitions-2.json"
             urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=500"
         }
-        
-        parseURL(urlString)
+    
+        fetchJson(urlString)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,8 +51,7 @@ class ViewController: UITableViewController {
         
         return cell
     }
-    
-  
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let vc = DetailViewController()
             vc.detailItem = petitions[indexPath.row]
@@ -67,9 +59,12 @@ class ViewController: UITableViewController {
     }
     
     func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        DispatchQueue.main.async {
+            [weak self] in
+            let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self?.present(ac, animated: true)
+        }
     }
     
     @objc func showInfo() {
@@ -96,32 +91,53 @@ class ViewController: UITableViewController {
     func submit(_ answer: String) {
         let titleSearch = answer.lowercased()
         if titleSearch.isEmpty {
-            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=200"
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=500"
         } else {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?title=\(titleSearch)"
         }
-        parseURL(urlString)
+        fetchJson(urlString)
     }
     
-    func parseURL(_ str: String) {
+    func fetchJson(_ str: String) {
         let str = str
-        if let url = URL(string: str) {
-            if let data = try? Data(contentsOf: url){
-                parse(json: data)
-                return
+        // load data loading indicator
+        loadIndicator()
+        
+        // GDC closure call
+        DispatchQueue.global(qos: .userInitiated).async {
+            [weak self] in
+            if let url = URL(string: str) {
+                if let data = try? Data(contentsOf: url){
+                    self?.parse(json: data)
+                    return
+                }
             }
-            showError()
+           self?.showError()
         }
     }
     
     func parse(json: Data) {
         let decoder = JSONDecoder()
-        loadingIndicator.startAnimating()
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
-            tableView.reloadData()
-            // dismiss loading indicator
-            dismiss(animated: false, completion: nil)
+            
+            DispatchQueue.main.async {
+                [weak self] in
+                    self?.tableView.reloadData()
+            }
         }
+        // dismiss loading indicator
+        dismiss(animated: false, completion: nil)
+    }
+    
+    func loadIndicator() {
+
+        let alert = UIAlertController(title: nil, message: "Loading Data...", preferredStyle: .alert)
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating()
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
     }
 }
