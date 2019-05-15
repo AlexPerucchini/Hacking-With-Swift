@@ -1,0 +1,12 @@
+spaceship
+sword
+hangman
+helicopter
+biodome
+knight
+dormitory
+capital
+monkey
+computer
+dirigible
+mountain

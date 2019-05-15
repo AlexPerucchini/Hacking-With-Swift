@@ -16,21 +16,10 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        let items = try! fm.contentsOfDirectory(atPath: path)
-        
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        for item in items {
-            if item.hasPrefix("nssl") {
-                // this is the picture to load
-                pictures.append(item)
-            }
-        }
-        //sort pictures
-        pictures = pictures.sorted()
+     
+        performSelector(inBackground: #selector(loadData), with: nil)
     }
 
     // override means the function is changing the parent view
@@ -65,6 +54,23 @@ class TableViewController: UITableViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-
+    
+    @objc func loadData() {
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+    
+        for item in items {
+            if item.hasPrefix("nssl") {
+                // this is the picture to load
+                pictures.append(item)
+            }
+        }
+        
+        //sort pictures
+        pictures = pictures.sorted()
+        
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+    }
 }
 
