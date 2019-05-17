@@ -15,6 +15,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Image Picker"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
         
     }
@@ -55,7 +58,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         
-        let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Rename picture", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
@@ -72,11 +75,22 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     // When you set self as the delegate, you'll need to conform not only to the UIImagePickerControllerDelegate protocol,
     // but also the UINavigationControllerDelegate protocol.
     @objc func addNewPerson() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = (self as UIImagePickerControllerDelegate as! UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         
-        present(picker, animated: true)
+        let ac = UIAlertController(title: "Select Image ...", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Camera",
+                                   style: .default, handler: cameraPicker))
+        ac.addAction(UIAlertAction(title: "Photo Library",
+                                   style: .default, handler: libraryPicker))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        //required for the iPad
+        ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        
+        present(ac, animated: true)
+        
+       
+        
+        
+       
     }
     
     // Extract the image from the dictionary that is passed as a parameter.
@@ -103,6 +117,33 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    func cameraPicker(_: UIAlertAction) {
+        let picker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            picker.delegate = (self as UIImagePickerControllerDelegate as! UIImagePickerControllerDelegate & UINavigationControllerDelegate)
+            
+            present(picker, animated: true)
+        } else {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func libraryPicker(_: UIAlertAction) {
+        let picker = UIImagePickerController()
+        
+        picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = (self as UIImagePickerControllerDelegate as! UIImagePickerControllerDelegate & UINavigationControllerDelegate)
+        
+        present(picker, animated: true)
+        picker.allowsEditing = true
     }
 }
 
