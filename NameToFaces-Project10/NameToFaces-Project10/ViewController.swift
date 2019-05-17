@@ -58,7 +58,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         
-        let ac = UIAlertController(title: "Rename picture", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Rename image", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
@@ -76,7 +76,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     // but also the UINavigationControllerDelegate protocol.
     @objc func addNewPerson() {
         
-        let ac = UIAlertController(title: "Select Image ...", message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Select Image...", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Camera",
                                    style: .default, handler: cameraPicker))
         ac.addAction(UIAlertAction(title: "Photo Library",
@@ -86,11 +86,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
         
         present(ac, animated: true)
-        
-       
-        
-        
-       
     }
     
     // Extract the image from the dictionary that is passed as a parameter.
@@ -129,7 +124,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             
             present(picker, animated: true)
         } else {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
