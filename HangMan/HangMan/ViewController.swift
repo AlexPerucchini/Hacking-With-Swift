@@ -165,7 +165,7 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
         
         // reset Game
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New Game", style: .plain, target: self, action: #selector(resetGame))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "NewGame", style: .plain, target: self, action: #selector(resetGame))
 
         answer = loadData()
         title = answer.masked
@@ -184,7 +184,7 @@ class ViewController: UIViewController {
             score += 10
             
             let ac = UIAlertController(title: "Woot!", message: "You got the correct answer: \(answer)", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Play again?", style: .default, handler: nil))
+            ac.addAction(UIAlertAction(title: "Select 'New Game' to play again.", style: .default, handler: nil))
             present(ac, animated: true)
             
         } else if errors <= 3 {
@@ -212,10 +212,8 @@ class ViewController: UIViewController {
             hangManImage.image = UIImage(named: "hg-5")
             
             let ac = UIAlertController(title: "DEAD!", message: "You lost the game :(!", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Play again?", style: .default, handler: nil))
+            ac.addAction(UIAlertAction(title: "Select 'NewGame' to play again.", style: .default, handler: nil))
             present(ac, animated: true)
-            
-            // move resetGame(sender)
         }
     }
     
@@ -246,6 +244,7 @@ class ViewController: UIViewController {
         let ac = UIAlertController(title: "How to play...", message: "hangman is a guessing game where a player tries to guess a word within a certain number of tries. Correct answers are worth 10 points, and wrong answers will set you back! Think fast and try not to make mistakes.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Sweet, let's play!", style: .default))
         present(ac, animated: true)
+    
     }
     
     @objc func resetGame(_ sender: UIButton) {
@@ -254,6 +253,7 @@ class ViewController: UIViewController {
         currentAnswer.text = ""
         answer = loadData()
         title = answer.masked
+        hangManImage.image = UIImage(named: "hg-1")
     }
 }
 
