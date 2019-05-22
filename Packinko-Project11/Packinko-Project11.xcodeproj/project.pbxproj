@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A275A222294B76A003B232F /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A275A212294B76A003B232F /* FireParticles.sks */; };
+		0A275A282294B97D003B232F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A275A262294B97D003B232F /* Assets.xcassets */; };
+		0A275A2C2294B9EA003B232F /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A275A2B2294B9EA003B232F /* smoke.sks */; };
 		0A28ED432290B71C00DB1AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28ED422290B71C00DB1AB0 /* AppDelegate.swift */; };
 		0A28ED452290B71C00DB1AB0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A28ED442290B71C00DB1AB0 /* GameScene.sks */; };
 		0A28ED492290B71C00DB1AB0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28ED482290B71C00DB1AB0 /* GameScene.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A275A212294B76A003B232F /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
+		0A275A262294B97D003B232F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A275A2B2294B9EA003B232F /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
 		0A28ED3F2290B71C00DB1AB0 /* Packinko-Project11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Packinko-Project11.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A28ED422290B71C00DB1AB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A28ED442290B71C00DB1AB0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -42,6 +48,7 @@
 		0A28ED362290B71C00DB1AB0 = {
 			isa = PBXGroup;
 			children = (
+				0A275A262294B97D003B232F /* Assets.xcassets */,
 				0A28ED412290B71C00DB1AB0 /* Packinko-Project11 */,
 				0A28ED402290B71C00DB1AB0 /* Products */,
 			);
@@ -66,6 +73,8 @@
 				0A28ED4F2290B71E00DB1AB0 /* Assets.xcassets */,
 				0A28ED512290B71E00DB1AB0 /* LaunchScreen.storyboard */,
 				0A28ED542290B71E00DB1AB0 /* Info.plist */,
+				0A275A212294B76A003B232F /* FireParticles.sks */,
+				0A275A2B2294B9EA003B232F /* smoke.sks */,
 			);
 			path = "Packinko-Project11";
 			sourceTree = "<group>";
@@ -130,8 +139,11 @@
 			files = (
 				0A28ED4E2290B71C00DB1AB0 /* Main.storyboard in Resources */,
 				0A28ED452290B71C00DB1AB0 /* GameScene.sks in Resources */,
+				0A275A222294B76A003B232F /* FireParticles.sks in Resources */,
+				0A275A282294B97D003B232F /* Assets.xcassets in Resources */,
 				0A28ED502290B71E00DB1AB0 /* Assets.xcassets in Resources */,
 				0A28ED532290B71E00DB1AB0 /* LaunchScreen.storyboard in Resources */,
+				0A275A2C2294B9EA003B232F /* smoke.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
