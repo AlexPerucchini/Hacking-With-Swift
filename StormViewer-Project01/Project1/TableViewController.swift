@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     // create an array to hold our pictures
     var pictures = [String]()
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +36,7 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "picture", for: indexPath)
         // find the index path of the pictures array and set the picture text
         cell.textLabel?.text = pictures[indexPath.row]
+        
         return cell
     }
     

@@ -11,7 +11,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
-    var editlabel: SKLabelNode!
+    var editlabel:  SKLabelNode!
     var clearLabel: SKLabelNode!
     var ballsLabel: SKLabelNode!
     
@@ -40,7 +40,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    
     
     override func didMove(to view: SKView) {
         
@@ -102,18 +101,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         // find where the touch was in the game scene
-        let location = touch.location(in: self)
+        var location = touch.location(in: self)
         
         // check to see if the editLabel was tapped
         let objects = nodes(at: location)
         
         if objects.contains(clearLabel) {
-            // new game
             newGame()
             
         } else if objects.contains(editlabel) {
             // switch to edit mode
             editingMode.toggle()
+            
         } else {
             if editingMode {
                 /* we're going to use a new property on nodes called zRotation. When creating the background image, we gave it a Z position, which adjusts its depth on the screen, front to back. If you imagine sticking a skewer through the Z position – i.e., going directly into your screen – and through a node, then you can imagine Z rotation: it rotates a node on the screen as if it had been skewered straight through the screen.
@@ -132,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 addChild(box)
                 
             } else {
-                let balls = ["ballRed", "ballBlue", "ballPurple", "ballCyan", "ballYellow" ]
+                let balls = ["ballRed", "ballBlue", "ballPurple", "ballCyan", "ballYellow"]
                 let ballColor = balls.shuffled().first
                 let ball  = SKSpriteNode(imageNamed: ballColor!)
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
@@ -143,8 +142,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // randomize entry point
                 // let xRandPos = CGFloat.random(in: 100...1000)
                 // ball.position = CGPoint(x: xRandPos, y: 760)
-                let xPos = touch.location(in: self)
-                print("\(xPos")
+                // we want the ball location to start at the top y axis and not below 760
+                if location.y < 760 {
+                    location.y = 760
+                }
+                print("\(location)")
                 ball.position = location
                 // Apple recommends assigning names to your nodes, then checking the name to see what node it is
                 ball.name = "ball"
@@ -161,6 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bouncer.physicsBody?.restitution  = 1.0
         // the bouncer object will be fixed in place
         bouncer.physicsBody?.isDynamic = false
+        
         addChild(bouncer)
     }
     
@@ -174,6 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
             slotBase.name = "good"
             spin = SKAction.rotate(byAngle: .pi, duration: 20)
+            
         } else {
             slotBase = SKSpriteNode(imageNamed: "slotBaseBad")
             slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
@@ -248,6 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             smokeParticles.position = box.position
             addChild(smokeParticles)
         }
+        
         box.removeFromParent()
     }
     
@@ -256,6 +261,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             fireParticles.position = ball.position
             addChild(fireParticles)
         }
+        
         ball.removeFromParent()
     }
     
