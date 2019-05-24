@@ -12,12 +12,26 @@ class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
-    @IBOutlet var scoreButton: UIBarButtonItem!
+    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var highScoreLabel: UILabel!
+    
+    let defaults = UserDefaults.standard
     
     var countries =  [String]()
-    var score = 0
+    
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     var correctAnswer = 0
     var questionsAsked  = 0
+    var highScore = 0 {
+        didSet {
+            // Display the high score
+            highScoreLabel.text = "High Score: \(highScore)"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +46,7 @@ class ViewController: UIViewController {
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
-        
-        // show the score in the right bar button when tapped
-        scoreButton = UIBarButtonItem(title: "Score", style: .done, target: self, action: #selector(shareTapped))
-        self.navigationItem.rightBarButtonItem = scoreButton
-        
-        // not parameters are passed in since the default acttion is nil
+    
         askQuestion()
     }
     
@@ -51,13 +60,14 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         // display the country name in the title
-        title = "Guess the flag: " + countries[correctAnswer].uppercased()
+        title = "Guess The Flag: " + countries[correctAnswer].uppercased()
         
         questionsAsked += 1
-        print(questionsAsked)
     }
     
     func resetGame(action: UIAlertAction! = nil) {
+        
+        // reset score
         score = 0
         questionsAsked  = 0
         askQuestion()
@@ -67,37 +77,50 @@ class ViewController: UIViewController {
         var title: String
         var flag: String
         
-        // reset the rightBarButtonTitle
-        scoreButton.title = "Score"
-        
         // the connected buttons are tagged 0/1/2
         if sender.tag == correctAnswer {
             title = "Correct"
-            score += 100
+            score += 10
         } else {
             flag = countries[sender.tag].uppercased()
             title = "That was the flag for \(flag)"
-            score -= 100
+            score -= 5
         }
         
         let ac: UIAlertController
 
-        if questionsAsked <= 10 {
+        if questionsAsked <= 3 {
             ac = UIAlertController(title: title, message: "Let's keep playing!", preferredStyle: .alert)
-            
             // review closure. Continue the game and call askQuestion. The handler askQuestion without parens means here is the method to run BUT askQuestions() will execute the method and it will tell you the method to run... which is not what we want
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         } else {
+            
+            // load previous saved score
+            let savedHighScore = defaults.integer(forKey: "highScore")
+            
+            print(savedHighScore)
+            print(score)
+            
+            if savedHighScore > score {
+                // Display the high score
+                highScoreLabel.text = "High Score: \(savedHighScore)"
+            } else if score > savedHighScore {
+                // we have a new high score
+                let ac = UIAlertController(title: "Congratulations", message: "New High Score: \(score)!", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Thanks!", style: .default, handler: resetGame))
+                
+                present(ac, animated: true)
+            }
+            
+            // save high score
+            highScore = score
+            defaults.set(highScore, forKey: "highScore")
+            
             ac = UIAlertController(title: title, message: "Game Over. Your final score: \(score)!", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Play Again?", style: .default, handler: resetGame))
         }
         
         present(ac, animated: true)
-    }
-    
-    @objc func shareTapped() {
-        // refactor to an alert action
-        scoreButton.title = "\(score)"
     }
 }
 
