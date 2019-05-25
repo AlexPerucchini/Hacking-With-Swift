@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Picture: NSObject {
+class Picture: NSObject, Codable {
     var caption: String
     var image: String
     

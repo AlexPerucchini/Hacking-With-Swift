@@ -12,15 +12,18 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     
     // create an array to hold our pictures
     var pictures = [Picture]()
+    let picker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        picker.delegate = self
         
         title = "PiXiE"
         navigationController?.navigationBar.prefersLargeTitles = false
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addImage))
+        
+        
     }
     
     // override means the function is changing the parent view
@@ -42,6 +45,20 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         let path = getDocumentsDirectory().appendingPathComponent(picture.image)
         cell.imageView?.image = UIImage(contentsOfFile: path.path)
         
+        // reload the data from disk
+        let defaults = UserDefaults.standard
+        
+        if let savedPictures = defaults.object(forKey: "pictures") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                pictures = try jsonDecoder.decode([Picture].self, from: savedPictures)
+            } catch {
+                print("Failed to load pictures")
+            }
+        }
+        
+        
         return cell
     }
     
@@ -56,7 +73,6 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         })
     }
     
-    
     // 1) load the detail view controller layout from our storyboard.
     // 2) set its selectedImage property to be the correct item from the pictures array.
     // 3) show the new view controller.
@@ -64,7 +80,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         // try loading the detail view controller and typecast as DetailViewController
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // great, set it's selectedImage property
-            vc.selectedImage = pictures[indexPath.item]
+            vc.selectedImage = pictures[indexPath.row]
 
             // now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
@@ -88,7 +104,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         let picture = Picture(caption: "unknown", image: imageName)
         print(picture)
         pictures.append(picture)
-        
+        save()
         tableView.reloadData()
         dismiss(animated: true)
     }
@@ -99,7 +115,6 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     @objc func addImage() {
-        
         let ac = UIAlertController(title: "Select Image...", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Camera",
                                    style: .default, handler: cameraPicker))
@@ -113,9 +128,6 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     func cameraPicker(_: UIAlertAction) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.sourceType = .camera
             picker.allowsEditing = true
@@ -130,14 +142,22 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     func libraryPicker(_: UIAlertAction) {
-        let picker = UIImagePickerController()
-        
         picker.sourceType = UIImagePickerController.SourceType.photoLibrary
         picker.allowsEditing = true
         picker.delegate = (self as UIImagePickerControllerDelegate as! UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         
         present(picker, animated: true)
         picker.allowsEditing = true
+    }
+    
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(pictures) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "pictures")
+        } else {
+            print("Failed to save people.")
+        }
     }
 }
 

@@ -12,19 +12,21 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     var selectedImage: Picture?
-  
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Caption"
+        
+        guard let caption = selectedImage?.caption else {return}
+        title = "Image: \(caption)"
         // don't inherit the large title. Apple recommends this approach
         navigationItem.largeTitleDisplayMode  = .never
         
-        print("PICTURE: \(String(describing: selectedImage?.image))")
-        
-        if let imageToLoad = selectedImage {
-            imageView.image = UIImage(named: imageToLoad.image)
+        if let imageToLoad = selectedImage?.image {
+            // get the path of the image
+            let path = getDocumentsDirectory().appendingPathComponent(imageToLoad)
+            // load the pciture
+            imageView.image = UIImage(contentsOfFile: path.path)
         }
     }
     
@@ -36,5 +38,10 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = false
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
