@@ -12,8 +12,10 @@ class Picture: NSObject, Codable {
     var caption: String
     var image: String
     
+    
     init(caption: String, image: String) {
         self.caption = caption
         self.image = image
+       
     }
 }

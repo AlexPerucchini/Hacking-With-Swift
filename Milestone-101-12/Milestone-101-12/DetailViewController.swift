@@ -12,13 +12,14 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     var selectedImage: Picture?
+    var caption: String?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let caption = caption else {return}
         
-        guard let caption = selectedImage?.caption else {return}
-        title = "Image: \(caption)"
+        title = "\(caption)"
         // don't inherit the large title. Apple recommends this approach
         navigationItem.largeTitleDisplayMode  = .never
         

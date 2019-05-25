@@ -23,6 +23,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addImage))
         
+        loadSavedData()
         
     }
     
@@ -45,20 +46,13 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         let path = getDocumentsDirectory().appendingPathComponent(picture.image)
         cell.imageView?.image = UIImage(contentsOfFile: path.path)
         
-        // reload the data from disk
-        let defaults = UserDefaults.standard
-        
-        if let savedPictures = defaults.object(forKey: "pictures") as? Data {
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                pictures = try jsonDecoder.decode([Picture].self, from: savedPictures)
-            } catch {
-                print("Failed to load pictures")
-            }
-        }
-        
-        
+        cell.imageView?.layer.cornerRadius = 3
+        cell.imageView?.layer.borderWidth = 1
+        cell.imageView?.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.cornerRadius = 7
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+
         return cell
     }
     
@@ -77,13 +71,42 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     // 2) set its selectedImage property to be the correct item from the pictures array.
     // 3) show the new view controller.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // save the renamed images name
+        let picture = pictures[indexPath.item]
+    
         // try loading the detail view controller and typecast as DetailViewController
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            
+            if picture.caption == "unknown" {
+                let ac = UIAlertController(title: "Rename image", message: nil, preferredStyle: .alert)
+                ac.addTextField()
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                ac.addAction(UIAlertAction(title: "OK", style: .default) {
+                    [weak self, weak ac] _ in
+                    guard let newCaption = ac?.textFields?[0].text else { return }
+                    picture.caption = newCaption
+                    // save to disk
+                    self?.save()
+                    //reload tableView
+                    self?.tableView.reloadData()
+                })
+            
+                present(ac, animated: true)
+            }
             // great, set it's selectedImage property
             vc.selectedImage = pictures[indexPath.row]
-
+            vc.caption = picture.caption
             // now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
+
+        }
+    
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            pictures.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -104,8 +127,11 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         let picture = Picture(caption: "unknown", image: imageName)
         print(picture)
         pictures.append(picture)
+        //save to disk
         save()
+        
         tableView.reloadData()
+        
         dismiss(animated: true)
     }
     
@@ -157,6 +183,21 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             defaults.set(savedData, forKey: "pictures")
         } else {
             print("Failed to save people.")
+        }
+    }
+    
+    func loadSavedData() {
+        // reload the data from disk
+        let defaults = UserDefaults.standard
+        
+        if let savedPictures = defaults.object(forKey: "pictures") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                pictures = try jsonDecoder.decode([Picture].self, from: savedPictures)
+            } catch {
+                print("Failed to load pictures")
+            }
         }
     }
 }

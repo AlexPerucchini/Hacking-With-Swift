@@ -26,18 +26,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="376" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-j3-MwG">
-                                            <rect key="frame" x="20" y="5" width="52" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-j3-MwG">
+                                            <rect key="frame" x="20" y="4.5" width="42" height="50.5"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tB-wc-2EC">
-                                            <rect key="frame" x="125" y="3" width="230" height="46"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tB-wc-2EC">
+                                            <rect key="frame" x="115" y="3" width="196" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="230" id="8Bs-9X-Rl5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dXh-j3-MwG" firstAttribute="leading" secondItem="sJo-to-EqI" secondAttribute="leadingMargin" id="IHM-jr-1sx"/>
+                                        <constraint firstItem="4tB-wc-2EC" firstAttribute="bottom" secondItem="sJo-to-EqI" secondAttribute="bottomMargin" id="O5k-Mt-0CB"/>
+                                        <constraint firstItem="4tB-wc-2EC" firstAttribute="top" secondItem="sJo-to-EqI" secondAttribute="topMargin" constant="-8" id="OTr-lO-6cC"/>
+                                        <constraint firstItem="4tB-wc-2EC" firstAttribute="leading" secondItem="dXh-j3-MwG" secondAttribute="trailing" constant="53" id="QuI-Jo-0Km"/>
+                                        <constraint firstItem="dXh-j3-MwG" firstAttribute="centerY" secondItem="sJo-to-EqI" secondAttribute="centerY" id="d08-iU-6eq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dXh-j3-MwG" secondAttribute="bottom" constant="-6" id="nQq-Bt-WYL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4tB-wc-2EC" secondAttribute="trailing" constant="23" id="p0J-VO-y8F"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="caption" destination="4tB-wc-2EC" id="3k8-r2-aVT"/>
@@ -64,12 +74,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mtR-CY-dif">
-                                <rect key="frame" x="-11" y="0.0" width="459" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mtR-CY-dif">
+                                <rect key="frame" x="0.0" y="106" width="414" height="334"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="edb-E6-SuN" firstAttribute="bottom" secondItem="mtR-CY-dif" secondAttribute="bottom" constant="422" id="4i0-OJ-0xK"/>
+                            <constraint firstItem="mtR-CY-dif" firstAttribute="top" secondItem="edb-E6-SuN" secondAttribute="top" constant="62" id="TTq-Ou-Lwa"/>
+                            <constraint firstAttribute="trailing" secondItem="mtR-CY-dif" secondAttribute="trailing" id="bUV-Tn-PQ1"/>
+                            <constraint firstItem="mtR-CY-dif" firstAttribute="leading" secondItem="nA4-WT-LPt" secondAttribute="leading" id="pcz-bC-rwg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="edb-E6-SuN"/>
                     </view>
                     <connections>
@@ -88,6 +103,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cm3-3S-DWe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
