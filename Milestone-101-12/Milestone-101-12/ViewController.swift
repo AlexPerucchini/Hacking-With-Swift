@@ -93,6 +93,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             
                 present(ac, animated: true)
             }
+            
             // great, set it's selectedImage property
             vc.selectedImage = pictures[indexPath.row]
             vc.caption = picture.caption

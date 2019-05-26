@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A28ED3F2290B71C00DB1AB0 /* Packinko-Project11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Packinko-Project11.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A28ED3F2290B71C00DB1AB0 /* Swift-Pinball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Pinball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A28ED422290B71C00DB1AB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A28ED442290B71C00DB1AB0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		0A28ED482290B71C00DB1AB0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		0A28ED402290B71C00DB1AB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A28ED3F2290B71C00DB1AB0 /* Packinko-Project11.app */,
+				0A28ED3F2290B71C00DB1AB0 /* Swift-Pinball.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A28ED3E2290B71C00DB1AB0 /* Packinko-Project11 */ = {
+		0A28ED3E2290B71C00DB1AB0 /* Swift-Pinball */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A28ED572290B71E00DB1AB0 /* Build configuration list for PBXNativeTarget "Packinko-Project11" */;
+			buildConfigurationList = 0A28ED572290B71E00DB1AB0 /* Build configuration list for PBXNativeTarget "Swift-Pinball" */;
 			buildPhases = (
 				0A28ED3B2290B71C00DB1AB0 /* Sources */,
 				0A28ED3C2290B71C00DB1AB0 /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = "Packinko-Project11";
+			name = "Swift-Pinball";
 			productName = "Packinko-Project11";
-			productReference = 0A28ED3F2290B71C00DB1AB0 /* Packinko-Project11.app */;
+			productReference = 0A28ED3F2290B71C00DB1AB0 /* Swift-Pinball.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A28ED3A2290B71C00DB1AB0 /* Build configuration list for PBXProject "Packinko-Project11" */;
+			buildConfigurationList = 0A28ED3A2290B71C00DB1AB0 /* Build configuration list for PBXProject "Swift-Pinball" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A28ED3E2290B71C00DB1AB0 /* Packinko-Project11 */,
+				0A28ED3E2290B71C00DB1AB0 /* Swift-Pinball */,
 			);
 		};
 /* End PBXProject section */
@@ -323,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A28ED3A2290B71C00DB1AB0 /* Build configuration list for PBXProject "Packinko-Project11" */ = {
+		0A28ED3A2290B71C00DB1AB0 /* Build configuration list for PBXProject "Swift-Pinball" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A28ED552290B71E00DB1AB0 /* Debug */,
@@ -332,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A28ED572290B71E00DB1AB0 /* Build configuration list for PBXNativeTarget "Packinko-Project11" */ = {
+		0A28ED572290B71E00DB1AB0 /* Build configuration list for PBXNativeTarget "Swift-Pinball" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A28ED582290B71E00DB1AB0 /* Debug */,

@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
+    var gameTitleLabel: SKLabelNode!
     
     var score = 0 {
         didSet {
@@ -19,51 +20,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        
-        let background = SKSpriteNode(imageNamed: "background.jpg")
-        // these are the best CGPoint for iPad
-        background.position = CGPoint(x: 385, y: 330 )
-        // ignore transparancy makes it faster
-        background.blendMode = .replace
-        // place it in the background
-        background.zPosition = -1
-        addChild(background)
-        
-        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
-        scoreLabel.text = "Score: 0"
-        scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: 980, y: 700)
-        addChild(scoreLabel)
-        
-        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-        //assign the current scene to be the physics world's contact delegate
-        physicsWorld.contactDelegate = self
-        
-        makeSlot(at: CGPoint(x: 390, y: 0), isGood: false)
-       
-        makeGlow(at: CGPoint(x: 0, y: 0))
-        makeGlow(at: CGPoint(x: 770, y: 0))
-        makeGlow(at: CGPoint(x: 0, y: 1020))
-        makeGlow(at: CGPoint(x: 770, y: 1020))
-
-
-        makeBouncer(at: CGPoint(x: 195, y: 700))
-        makeBouncer(at: CGPoint(x: 390, y: 550))
-        //makeBouncer(at: CGPoint(x: 390, y: 850))
-        makeBouncer(at: CGPoint(x: 590, y: 700))
-        
-        makeBouncer(at: CGPoint(x: 195, y: 400))
-        makeBouncer(at: CGPoint(x: 590, y: 400))
-        
-        makeBouncer(at: CGPoint(x: 256, y: 0))
-        makeBouncer(at: CGPoint(x: 512, y: 0))
-    
+        // setup the game scene
+        setupGameAssets()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         // find where the touch was in the game scene
-        let location = touch.location(in: self)
+        var location = touch.location(in: self)
         
         let ball  = SKSpriteNode(imageNamed: "ballBlue")
         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
@@ -71,8 +35,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
         // bounciness the higher the value the more bounce
         ball.physicsBody?.restitution  = 0.4
+        // we want the ball location to start at the top y axis and not below 760
+        if location.y < 1020 {
+            location.y = 1020
+        }
         ball.position = location
-        // Apple recommends assigning names to your nodes, then checking the name to see what node it is
+        // Apple recommends assigning names to your nodes, then checking
+        // the name to see what node it is
         ball.name = "ball"
         addChild(ball)
     }
@@ -81,9 +50,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bouncer = SKSpriteNode(imageNamed: "bouncer")
         bouncer.position = position
         bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
-        bouncer.physicsBody?.restitution  = 1.0
+        bouncer.physicsBody?.restitution  = 1.3
         // the bouncer object will be fixed in place
         bouncer.physicsBody?.isDynamic = false
+        bouncer.name = "bouncer"
         addChild(bouncer)
     }
     
@@ -160,19 +130,88 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
         } else if bodyB.name == "ball" {
             collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
+        } else if bodyA.name == "bouncer" {
+            collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
         }
     }
     
-
     func collisionBetween(ball: SKNode, object: SKNode) {
         if object.name == "good" {
             destroy(ball: ball)
         } else if object.name == "bad" {
             destroy(ball: ball)
+        } else if object.name == "bouncer" {
+            score += 100
+            shakeNode(layer: object as! SKSpriteNode, duration: 0.5)
         }
     }
     
     func destroy(ball: SKNode) {
         ball.removeFromParent()
     }
+    
+    func setupGameAssets() {
+        let background = SKSpriteNode(imageNamed: "background.jpg")
+        // these are the best CGPoint for iPad
+        background.position = CGPoint(x: 390, y: 380 )
+        // ignore transparancy makes it faster
+        background.blendMode = .replace
+        // place it in the background
+        background.zPosition = -1
+        addChild(background)
+        
+        gameTitleLabel = SKLabelNode(fontNamed: "Chalkduster")
+        gameTitleLabel.text = "Tropicana Pinball"
+        gameTitleLabel.fontSize = 50.0
+        // gameTitleLabel.fontColor = UIColor.blue
+        gameTitleLabel.horizontalAlignmentMode = .center
+        gameTitleLabel.position = CGPoint(x: 390, y: 970)
+        addChild(gameTitleLabel)
+        
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .center
+        // scoreLabel.fontColor = UIColor.blue
+        scoreLabel.position = CGPoint(x: 390, y: 930)
+        addChild(scoreLabel)
+        
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        //assign the current scene to be the physics world's contact delegate
+        physicsWorld.contactDelegate = self
+        
+        makeSlot(at: CGPoint(x: 390, y: 0), isGood: false)
+        
+        makeGlow(at: CGPoint(x: 0, y: 0))
+        makeGlow(at: CGPoint(x: 770, y: 0))  //botton-left glow
+        makeGlow(at: CGPoint(x: 0, y: 1020))
+        makeGlow(at: CGPoint(x: 770, y: 1020))
+        
+        makeBouncer(at: CGPoint(x: 220, y: 750)) //center top-right
+        makeBouncer(at: CGPoint(x: 550, y: 750)) //center Top-left
+        makeBouncer(at: CGPoint(x: 390, y: 630)) //center center
+        makeBouncer(at: CGPoint(x: 220, y: 500)) //center bottom-right
+        makeBouncer(at: CGPoint(x: 550, y: 500)) //center bottom-left
+        
+        makeBouncer(at: CGPoint(x: 256, y: 0)) //bottom-right bouncer
+        makeBouncer(at: CGPoint(x: 512, y: 0)) //bottom-left bouncer
+    }
+    
+    func shakeNode(layer:SKSpriteNode, duration:Float) {
+        let amplitudeX:Float = 20;
+        let amplitudeY:Float = 15;
+        let numberOfShakes = duration / 0.04;
+        var actionsArray:[SKAction] = [];
+        for _ in 1...Int(numberOfShakes) {
+            let moveX = Float(arc4random_uniform(UInt32(amplitudeX))) - amplitudeX / 2;
+            let moveY = Float(arc4random_uniform(UInt32(amplitudeY))) - amplitudeY / 2;
+            let shakeAction = SKAction.moveBy(x: CGFloat(moveX), y: CGFloat(moveY), duration: 0.02);
+            shakeAction.timingMode = SKActionTimingMode.easeOut;
+            actionsArray.append(shakeAction);
+            actionsArray.append(shakeAction.reversed());
+        }
+        
+        let actionSeq = SKAction.sequence(actionsArray);
+        layer.run(actionSeq);
+    }
 }
+
