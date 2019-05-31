@@ -19,6 +19,7 @@ class GameScene: SKScene {
             gameScore.text = "Score: \(score)"
         }
     }
+    var popupTime = 0.85
 
     override func didMove(to view: SKView) {
         
@@ -39,6 +40,8 @@ class GameScene: SKScene {
         for i in 0 ..< 4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 320)) }
         for i in 0 ..< 5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 230)) }
         for i in 0 ..< 4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 140)) }
+        
+        createEnemy()
 
     }
 
@@ -51,5 +54,27 @@ class GameScene: SKScene {
         slot.configure(at: position)
         addChild(slot)
         slots.append(slot)
+    }
+    
+    func createEnemy() {
+        popupTime *= 0.991 // make popuptime get faster and faster
+        
+        slots.shuffle()
+        slots[0].show(hideTime: popupTime)
+        // randomize which slot to show
+        if Int.random(in: 0...12) > 4 { slots[1].show(hideTime: popupTime) }
+        if Int.random(in: 0...12) > 8 {  slots[2].show(hideTime: popupTime) }
+        if Int.random(in: 0...12) > 10 { slots[3].show(hideTime: popupTime) }
+        if Int.random(in: 0...12) > 11 { slots[4].show(hideTime: popupTime)  }
+        
+        let minDelay = popupTime / 2.0
+        let maxDelay = popupTime * 2
+        let delay = Double.random(in: minDelay...maxDelay)
+        
+        // GCD grand central dispatch
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            [weak self] in
+            self?.createEnemy()
+        }
     }
 }
