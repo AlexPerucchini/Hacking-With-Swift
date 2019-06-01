@@ -33,10 +33,7 @@ class WhackSlot: SKNode {
         charNode.name = "character"
         cropNode.addChild(charNode)
         
-        let say = ["Ha-ha!", "Boo!", "Nope!", "Zilch!", "Nada!"]
-
         myLabel = SKLabelNode(fontNamed: "Chalkduster")
-        myLabel.text = say.shuffled().first
         myLabel.fontSize = 20
         myLabel.position = CGPoint(x: 0, y: -80)
     
@@ -48,19 +45,25 @@ class WhackSlot: SKNode {
     func show(hideTime: Double) {
         if isVisible { return }
         
+        // make the penguin regular size
+        charNode.xScale = 1
+        charNode.yScale = 1
+        
         // move penguin up the slot
         charNode.run(SKAction.moveBy(x: 0, y: 70, duration: 0.05))
         myLabel.run(SKAction.moveBy(x:0,  y: 100, duration: 0.05))
         isVisible = true
         isHit = false
         
+        let say = ["Ha-ha!", "Boo!", "Nope!", "Zilch!", "Nada!"]
+        
         if Int.random(in: 0...2) == 0 {
             charNode.texture = SKTexture(imageNamed: "penguinGood")
-
             charNode.name = "charFriend"
         } else {
             charNode.texture = SKTexture(imageNamed: "penguinEvil")
             charNode.name = "charEnemy"
+            myLabel.text = say.shuffled().first
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * 3.5)) {
@@ -76,5 +79,24 @@ class WhackSlot: SKNode {
         myLabel.run(SKAction.moveBy(x: 0, y: -100, duration: 0.05))
         
         isVisible = false
+    }
+    
+    func hit() {
+        isHit = true
+        
+        guard let smokeParticles = SKEmitterNode(fileNamed: "smoke") else {return}
+        smokeParticles.position = charNode.position
+        addChild(smokeParticles)
+    
+        let delay = SKAction.wait(forDuration: 0.25)
+        let hideChar = SKAction.moveBy(x: 0, y: -70, duration: 0.5)
+        let hideLabel = SKAction.moveBy(x: 0, y: -100, duration: 0.5)
+        let notVisible = SKAction.run { [unowned self] in self.isVisible = false }
+        
+        // make a sequence of action
+        charNode.run(SKAction.sequence([delay, hideChar, notVisible]))
+        myLabel.run(SKAction.sequence([delay,hideLabel, notVisible]))
+        smokeParticles.run(SKAction.sequence([delay, notVisible]))
+        
     }
 }

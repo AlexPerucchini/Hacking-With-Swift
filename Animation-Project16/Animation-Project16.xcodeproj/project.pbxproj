@@ -7,35 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AE6CA05229EEB9E006E32B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6CA04229EEB9E006E32B0 /* AppDelegate.swift */; };
-		0AE6CA07229EEB9E006E32B0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6CA06229EEB9E006E32B0 /* GameScene.sks */; };
-		0AE6CA0B229EEB9E006E32B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6CA0A229EEB9E006E32B0 /* GameScene.swift */; };
-		0AE6CA0D229EEB9E006E32B0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6CA0C229EEB9E006E32B0 /* GameViewController.swift */; };
-		0AE6CA10229EEB9E006E32B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6CA0E229EEB9E006E32B0 /* Main.storyboard */; };
-		0AE6CA12229EEBA0006E32B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6CA11229EEBA0006E32B0 /* Assets.xcassets */; };
-		0AE6CA15229EEBA0006E32B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6CA13229EEBA0006E32B0 /* LaunchScreen.storyboard */; };
-		0AE6CA1D229EF675006E32B0 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6CA1C229EF675006E32B0 /* WhackSlot.swift */; };
-		0AFCC95C22A1BE9000D3C187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFCC95A22A1BE9000D3C187 /* Assets.xcassets */; };
-		0AFCC95E22A1BF3900D3C187 /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0AFCC95D22A1BF3900D3C187 /* smoke.sks */; };
+		0AFCC96C22A2A03E00D3C187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFCC96B22A2A03E00D3C187 /* AppDelegate.swift */; };
+		0AFCC96E22A2A03E00D3C187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFCC96D22A2A03E00D3C187 /* ViewController.swift */; };
+		0AFCC97122A2A03E00D3C187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFCC96F22A2A03E00D3C187 /* Main.storyboard */; };
+		0AFCC97322A2A04500D3C187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AFCC97222A2A04500D3C187 /* Assets.xcassets */; };
+		0AFCC97622A2A04500D3C187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFCC97422A2A04500D3C187 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0AE6CA01229EEB9E006E32B0 /* Whack-Pinguin-Project14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whack-Pinguin-Project14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AE6CA04229EEB9E006E32B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AE6CA06229EEB9E006E32B0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0AE6CA0A229EEB9E006E32B0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		0AE6CA0C229EEB9E006E32B0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		0AE6CA0F229EEB9E006E32B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0AE6CA11229EEBA0006E32B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0AE6CA14229EEBA0006E32B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0AE6CA16229EEBA0006E32B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AE6CA1C229EF675006E32B0 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
-		0AFCC95A22A1BE9000D3C187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0AFCC95D22A1BF3900D3C187 /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		0AFCC96822A2A03E00D3C187 /* Animation-Project16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation-Project16.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AFCC96B22A2A03E00D3C187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0AFCC96D22A2A03E00D3C187 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0AFCC97022A2A03E00D3C187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0AFCC97222A2A04500D3C187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0AFCC97522A2A04500D3C187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0AFCC97722A2A04500D3C187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0AE6C9FE229EEB9E006E32B0 /* Frameworks */ = {
+		0AFCC96522A2A03E00D3C187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,76 +35,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AE6C9F8229EEB9E006E32B0 = {
+		0AFCC95F22A2A03E00D3C187 = {
 			isa = PBXGroup;
 			children = (
-				0AFCC95A22A1BE9000D3C187 /* Assets.xcassets */,
-				0AE6CA03229EEB9E006E32B0 /* Whack-Pinguin-Project14 */,
-				0AE6CA02229EEB9E006E32B0 /* Products */,
+				0AFCC96A22A2A03E00D3C187 /* Animation-Project16 */,
+				0AFCC96922A2A03E00D3C187 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0AE6CA02229EEB9E006E32B0 /* Products */ = {
+		0AFCC96922A2A03E00D3C187 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0AE6CA01229EEB9E006E32B0 /* Whack-Pinguin-Project14.app */,
+				0AFCC96822A2A03E00D3C187 /* Animation-Project16.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0AE6CA03229EEB9E006E32B0 /* Whack-Pinguin-Project14 */ = {
+		0AFCC96A22A2A03E00D3C187 /* Animation-Project16 */ = {
 			isa = PBXGroup;
 			children = (
-				0AE6CA04229EEB9E006E32B0 /* AppDelegate.swift */,
-				0AE6CA06229EEB9E006E32B0 /* GameScene.sks */,
-				0AE6CA0A229EEB9E006E32B0 /* GameScene.swift */,
-				0AE6CA1C229EF675006E32B0 /* WhackSlot.swift */,
-				0AE6CA0C229EEB9E006E32B0 /* GameViewController.swift */,
-				0AE6CA0E229EEB9E006E32B0 /* Main.storyboard */,
-				0AE6CA11229EEBA0006E32B0 /* Assets.xcassets */,
-				0AE6CA13229EEBA0006E32B0 /* LaunchScreen.storyboard */,
-				0AFCC95D22A1BF3900D3C187 /* smoke.sks */,
-				0AE6CA16229EEBA0006E32B0 /* Info.plist */,
+				0AFCC96B22A2A03E00D3C187 /* AppDelegate.swift */,
+				0AFCC96D22A2A03E00D3C187 /* ViewController.swift */,
+				0AFCC96F22A2A03E00D3C187 /* Main.storyboard */,
+				0AFCC97222A2A04500D3C187 /* Assets.xcassets */,
+				0AFCC97422A2A04500D3C187 /* LaunchScreen.storyboard */,
+				0AFCC97722A2A04500D3C187 /* Info.plist */,
 			);
-			path = "Whack-Pinguin-Project14";
+			path = "Animation-Project16";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0AE6CA00229EEB9E006E32B0 /* Whack-Pinguin-Project14 */ = {
+		0AFCC96722A2A03E00D3C187 /* Animation-Project16 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0AE6CA19229EEBA0006E32B0 /* Build configuration list for PBXNativeTarget "Whack-Pinguin-Project14" */;
+			buildConfigurationList = 0AFCC97A22A2A04500D3C187 /* Build configuration list for PBXNativeTarget "Animation-Project16" */;
 			buildPhases = (
-				0AE6C9FD229EEB9E006E32B0 /* Sources */,
-				0AE6C9FE229EEB9E006E32B0 /* Frameworks */,
-				0AE6C9FF229EEB9E006E32B0 /* Resources */,
+				0AFCC96422A2A03E00D3C187 /* Sources */,
+				0AFCC96522A2A03E00D3C187 /* Frameworks */,
+				0AFCC96622A2A03E00D3C187 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Whack-Pinguin-Project14";
-			productName = "Whack-Pinguin-Project14";
-			productReference = 0AE6CA01229EEB9E006E32B0 /* Whack-Pinguin-Project14.app */;
+			name = "Animation-Project16";
+			productName = "Animation-Project16";
+			productReference = 0AFCC96822A2A03E00D3C187 /* Animation-Project16.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0AE6C9F9229EEB9E006E32B0 /* Project object */ = {
+		0AFCC96022A2A03E00D3C187 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Alex Perucchini";
 				TargetAttributes = {
-					0AE6CA00229EEB9E006E32B0 = {
+					0AFCC96722A2A03E00D3C187 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 0AE6C9FC229EEB9E006E32B0 /* Build configuration list for PBXProject "Whack-Pinguin-Project14" */;
+			buildConfigurationList = 0AFCC96322A2A03E00D3C187 /* Build configuration list for PBXProject "Animation-Project16" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,59 +107,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 0AE6C9F8229EEB9E006E32B0;
-			productRefGroup = 0AE6CA02229EEB9E006E32B0 /* Products */;
+			mainGroup = 0AFCC95F22A2A03E00D3C187;
+			productRefGroup = 0AFCC96922A2A03E00D3C187 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0AE6CA00229EEB9E006E32B0 /* Whack-Pinguin-Project14 */,
+				0AFCC96722A2A03E00D3C187 /* Animation-Project16 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0AE6C9FF229EEB9E006E32B0 /* Resources */ = {
+		0AFCC96622A2A03E00D3C187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AE6CA10229EEB9E006E32B0 /* Main.storyboard in Resources */,
-				0AFCC95E22A1BF3900D3C187 /* smoke.sks in Resources */,
-				0AE6CA07229EEB9E006E32B0 /* GameScene.sks in Resources */,
-				0AE6CA12229EEBA0006E32B0 /* Assets.xcassets in Resources */,
-				0AE6CA15229EEBA0006E32B0 /* LaunchScreen.storyboard in Resources */,
-				0AFCC95C22A1BE9000D3C187 /* Assets.xcassets in Resources */,
+				0AFCC97622A2A04500D3C187 /* LaunchScreen.storyboard in Resources */,
+				0AFCC97322A2A04500D3C187 /* Assets.xcassets in Resources */,
+				0AFCC97122A2A03E00D3C187 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0AE6C9FD229EEB9E006E32B0 /* Sources */ = {
+		0AFCC96422A2A03E00D3C187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AE6CA0B229EEB9E006E32B0 /* GameScene.swift in Sources */,
-				0AE6CA0D229EEB9E006E32B0 /* GameViewController.swift in Sources */,
-				0AE6CA1D229EF675006E32B0 /* WhackSlot.swift in Sources */,
-				0AE6CA05229EEB9E006E32B0 /* AppDelegate.swift in Sources */,
+				0AFCC96E22A2A03E00D3C187 /* ViewController.swift in Sources */,
+				0AFCC96C22A2A03E00D3C187 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0AE6CA0E229EEB9E006E32B0 /* Main.storyboard */ = {
+		0AFCC96F22A2A03E00D3C187 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0AE6CA0F229EEB9E006E32B0 /* Base */,
+				0AFCC97022A2A03E00D3C187 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0AE6CA13229EEBA0006E32B0 /* LaunchScreen.storyboard */ = {
+		0AFCC97422A2A04500D3C187 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0AE6CA14229EEBA0006E32B0 /* Base */,
+				0AFCC97522A2A04500D3C187 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -182,7 +162,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0AE6CA17229EEBA0006E32B0 /* Debug */ = {
+		0AFCC97822A2A04500D3C187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +223,7 @@
 			};
 			name = Debug;
 		};
-		0AE6CA18229EEBA0006E32B0 /* Release */ = {
+		0AFCC97922A2A04500D3C187 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,62 +278,62 @@
 			};
 			name = Release;
 		};
-		0AE6CA1A229EEBA0006E32B0 /* Debug */ = {
+		0AFCC97B22A2A04500D3C187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Whack-Pinguin-Project14/Info.plist";
+				INFOPLIST_FILE = "Animation-Project16/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.Whack-Pinguin-Project14";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.Animation-Project16";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0AE6CA1B229EEBA0006E32B0 /* Release */ = {
+		0AFCC97C22A2A04500D3C187 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Whack-Pinguin-Project14/Info.plist";
+				INFOPLIST_FILE = "Animation-Project16/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.Whack-Pinguin-Project14";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.Animation-Project16";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AE6C9FC229EEB9E006E32B0 /* Build configuration list for PBXProject "Whack-Pinguin-Project14" */ = {
+		0AFCC96322A2A03E00D3C187 /* Build configuration list for PBXProject "Animation-Project16" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AE6CA17229EEBA0006E32B0 /* Debug */,
-				0AE6CA18229EEBA0006E32B0 /* Release */,
+				0AFCC97822A2A04500D3C187 /* Debug */,
+				0AFCC97922A2A04500D3C187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0AE6CA19229EEBA0006E32B0 /* Build configuration list for PBXNativeTarget "Whack-Pinguin-Project14" */ = {
+		0AFCC97A22A2A04500D3C187 /* Build configuration list for PBXNativeTarget "Animation-Project16" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AE6CA1A229EEBA0006E32B0 /* Debug */,
-				0AE6CA1B229EEBA0006E32B0 /* Release */,
+				0AFCC97B22A2A04500D3C187 /* Debug */,
+				0AFCC97C22A2A04500D3C187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0AE6C9F9229EEB9E006E32B0 /* Project object */;
+	rootObject = 0AFCC96022A2A03E00D3C187 /* Project object */;
 }
