@@ -205,7 +205,8 @@ class ViewController: UIViewController {
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         // the button has been used
         activatedButtons.append(sender)
-        sender.isHidden = true
+        // sender.isHidden = true
+        sender.alpha = 0.1
     }
     
     @objc func clearTapped(_ sender: UIButton) {
@@ -213,7 +214,8 @@ class ViewController: UIViewController {
         
         // show buttons again
         for button in activatedButtons {
-            button.isHidden = false
+           //  button.isHidden = false
+            button.alpha = 1
         }
         
         // empyt the activatedButtons array
@@ -325,10 +327,12 @@ class ViewController: UIViewController {
         
         solutions.removeAll(keepingCapacity: false)
         
-        loadLevel()
+        currentAnswer.text = ""
         
-        for btn in letterButtons {
-            btn.isHidden = false
+        for btn in activatedButtons {
+            btn.alpha = 1
         }
+        
+        loadLevel()
     }
 }
