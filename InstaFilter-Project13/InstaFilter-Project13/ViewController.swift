@@ -21,8 +21,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // core image context
     var context: CIContext!
     var currentFilter: CIFilter!
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
 
     override func viewDidLoad() {
+        imageView.alpha = 0
         super.viewDidLoad()
         title = "InstaFilter"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
@@ -52,6 +56,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             popoverController.sourceView = sender
             popoverController.sourceRect = sender.bounds
         }
+        // reset slider values
+        intesity.value = 0.5
+        radius .value = 0.5
+        scale.value = 0.5
+        
         present(ac, animated: true)
        
     }
@@ -106,10 +115,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true)
         currentImage = image
+       
         
-        let beginImage = CIImage(image: currentImage)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        applyProcessing()
+        UIView.animate(withDuration: 4.0 ) {
+            self.imageView.image = self.currentImage
+            self.imageView.alpha = 1
+            self.imageView.layoutIfNeeded()
+        }
+//        let beginImage = CIImage(image: currentImage)
+//        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+//        applyProcessing()
     }
     
     func applyProcessing() {
@@ -120,7 +135,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(intesity.value, forKey: kCIInputIntensityKey) }
         if inputKeys.contains(kCIInputRadiusKey)    { currentFilter.setValue(radius.value * 200, forKey: kCIInputRadiusKey) }
-        if inputKeys.contains(kCIInputScaleKey)     { currentFilter.setValue(scale.value * 100, forKey: kCIInputScaleKey) }
+        if inputKeys.contains(kCIInputScaleKey)     { currentFilter.setValue(scale.value * 20, forKey: kCIInputScaleKey) }
         if inputKeys.contains(kCIInputCenterKey)    { currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey) }
         
         if let cgimg = context.createCGImage(image, from: image.extent) {
