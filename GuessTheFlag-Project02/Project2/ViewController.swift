@@ -38,15 +38,20 @@ class ViewController: UIViewController {
        
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
-        button1.layer.borderWidth = 1
-        button2.layer.borderWidth = 1
-        button3.layer.borderWidth = 1
+       
+        button1.layer.borderWidth = 2
+        button2.layer.borderWidth = 2
+        button3.layer.borderWidth = 2
         
         // set caLayer border color for the border
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
-    
+        
+        button1.layer.cornerRadius = 5
+        button2.layer.cornerRadius = 5
+        button3.layer.cornerRadius = 5
+   
         askQuestion()
     }
     
@@ -55,6 +60,11 @@ class ViewController: UIViewController {
         countries.shuffle()
         // randomize which flag to select as the question
         correctAnswer = Int.random(in: 0...2)
+        
+        button1.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        button2.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        button3.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+
         
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
@@ -81,6 +91,7 @@ class ViewController: UIViewController {
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 10
+            transform(sender)
         } else {
             flag = countries[sender.tag].uppercased()
             title = "That was the flag for \(flag)"
@@ -121,6 +132,13 @@ class ViewController: UIViewController {
         }
         
         present(ac, animated: true)
+    }
+    
+    func transform(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity:2.0, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        })
     }
 }
 
