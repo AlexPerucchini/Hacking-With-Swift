@@ -47,7 +47,6 @@ class DetailViewController: UIViewController {
         <li>Native Name: \(detailItem.nativeName)</li>
         <img src="\(detailItem.flag)" alt="Flag" height="150" width="200" align="left">
         <ul>
-        
         </body>
         </html>
         """

@@ -16,7 +16,6 @@ class ViewController: UITableViewController {
     let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
     let searchController = UISearchController(searchResultsController: nil)
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +26,6 @@ class ViewController: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        
         
         title = "OneWorld "
 
