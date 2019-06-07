@@ -35,16 +35,17 @@ class ViewController: UITableViewController {
         loadIndicator()
         
         // GDC
+        
         DispatchQueue.global(qos: .userInitiated).async {
             [weak self] in
-            if let url = URL(string: self!.urlString) ?? nil {
+            if let url = URL(string: self!.urlString) {
                 if let data = try? Data(contentsOf: url) {
                     // we're OK to parse!
                     self?.parse(json: data)
+                    return
                 }
-            } else {
-                self?.showError()
             }
+            self?.showError()
         }
     }
     
