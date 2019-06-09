@@ -14,10 +14,11 @@ class DetailViewController: UIViewController {
     var selectedImage: String?
     var selectedPictureNumber = 0
     var totalPictures = 0
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        assert(selectedImage?.isEmpty == false)
         title = "Image: " + selectedImage! + " No: \(selectedPictureNumber) of \(totalPictures)"
         // don't inherit the large title. Apple recommends this approach
         navigationItem.largeTitleDisplayMode  = .never
