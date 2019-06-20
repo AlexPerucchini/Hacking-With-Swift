@@ -58,10 +58,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.collisionBitMask = 0
         player.zPosition = 1
         addChild(player)
+
         
         let curtains = SKSpriteNode(imageNamed: "curtains")
         curtains.position = CGPoint(x: 510, y: 375)
         curtains.size = CGSize(width: 1034, height: 770)
+        curtains.zPosition = -1
         addChild(curtains)
         
         let background = SKSpriteNode(imageNamed: "wood-background")
@@ -110,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let location = touch.location(in: self)
         let tappedNodes = nodes(at: location)
 
-        player.position = location
+        
         for node in tappedNodes {
             if node.name == "Ducks" {
                 score += 5
