@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AE567F6228A101700A16E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE567F5228A101700A16E04 /* AppDelegate.swift */; };
-		0AE567F8228A101700A16E04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE567F7228A101700A16E04 /* ViewController.swift */; };
-		0AE567FB228A101700A16E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE567F9228A101700A16E04 /* Main.storyboard */; };
-		0AE567FD228A101800A16E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE567FC228A101800A16E04 /* Assets.xcassets */; };
-		0AE56800228A101800A16E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE567FE228A101800A16E04 /* LaunchScreen.storyboard */; };
-		0AE5680A228A3A0200A16E04 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0AE56809228A391200A16E04 /* words.txt */; };
+		0A42D33F22D0F0E600E2F0C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D33E22D0F0E600E2F0C1 /* AppDelegate.swift */; };
+		0A42D34122D0F0E600E2F0C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D34022D0F0E600E2F0C1 /* ViewController.swift */; };
+		0A42D34422D0F0E600E2F0C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D34222D0F0E600E2F0C1 /* Main.storyboard */; };
+		0A42D34622D0F0E600E2F0C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D34522D0F0E600E2F0C1 /* Assets.xcassets */; };
+		0A42D34922D0F0E600E2F0C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D34722D0F0E600E2F0C1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0AE567F2228A101700A16E04 /* HangMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HangMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AE567F5228A101700A16E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AE567F7228A101700A16E04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0AE567FA228A101700A16E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0AE567FC228A101800A16E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0AE567FF228A101800A16E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0AE56801228A101800A16E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AE56809228A391200A16E04 /* words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = words.txt; path = "/Users/alexp/Documents/code/hacking_w_swift/Hangman-Milestone03/HangMan/words.txt"; sourceTree = "<absolute>"; };
+		0A42D33B22D0F0E600E2F0C1 /* MultiPeer-Project25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiPeer-Project25.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A42D33E22D0F0E600E2F0C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0A42D34022D0F0E600E2F0C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A42D34322D0F0E600E2F0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0A42D34522D0F0E600E2F0C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A42D34822D0F0E600E2F0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0A42D34A22D0F0E600E2F0C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0AE567EF228A101700A16E04 /* Frameworks */ = {
+		0A42D33822D0F0E600E2F0C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +35,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AE567E9228A101700A16E04 = {
+		0A42D33222D0F0E600E2F0C1 = {
 			isa = PBXGroup;
 			children = (
-				0AE567F4228A101700A16E04 /* HangMan */,
-				0AE567F3228A101700A16E04 /* Products */,
+				0A42D33D22D0F0E600E2F0C1 /* MultiPeer-Project25 */,
+				0A42D33C22D0F0E600E2F0C1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0AE567F3228A101700A16E04 /* Products */ = {
+		0A42D33C22D0F0E600E2F0C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0AE567F2228A101700A16E04 /* HangMan.app */,
+				0A42D33B22D0F0E600E2F0C1 /* MultiPeer-Project25.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0AE567F4228A101700A16E04 /* HangMan */ = {
+		0A42D33D22D0F0E600E2F0C1 /* MultiPeer-Project25 */ = {
 			isa = PBXGroup;
 			children = (
-				0AE56809228A391200A16E04 /* words.txt */,
-				0AE567F5228A101700A16E04 /* AppDelegate.swift */,
-				0AE567F7228A101700A16E04 /* ViewController.swift */,
-				0AE567F9228A101700A16E04 /* Main.storyboard */,
-				0AE567FC228A101800A16E04 /* Assets.xcassets */,
-				0AE567FE228A101800A16E04 /* LaunchScreen.storyboard */,
-				0AE56801228A101800A16E04 /* Info.plist */,
+				0A42D33E22D0F0E600E2F0C1 /* AppDelegate.swift */,
+				0A42D34022D0F0E600E2F0C1 /* ViewController.swift */,
+				0A42D34222D0F0E600E2F0C1 /* Main.storyboard */,
+				0A42D34522D0F0E600E2F0C1 /* Assets.xcassets */,
+				0A42D34722D0F0E600E2F0C1 /* LaunchScreen.storyboard */,
+				0A42D34A22D0F0E600E2F0C1 /* Info.plist */,
 			);
-			path = HangMan;
+			path = "MultiPeer-Project25";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0AE567F1228A101700A16E04 /* HangMan */ = {
+		0A42D33A22D0F0E600E2F0C1 /* MultiPeer-Project25 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0AE56804228A101800A16E04 /* Build configuration list for PBXNativeTarget "HangMan" */;
+			buildConfigurationList = 0A42D34D22D0F0E600E2F0C1 /* Build configuration list for PBXNativeTarget "MultiPeer-Project25" */;
 			buildPhases = (
-				0AE567EE228A101700A16E04 /* Sources */,
-				0AE567EF228A101700A16E04 /* Frameworks */,
-				0AE567F0228A101700A16E04 /* Resources */,
+				0A42D33722D0F0E600E2F0C1 /* Sources */,
+				0A42D33822D0F0E600E2F0C1 /* Frameworks */,
+				0A42D33922D0F0E600E2F0C1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HangMan;
-			productName = HangMan;
-			productReference = 0AE567F2228A101700A16E04 /* HangMan.app */;
+			name = "MultiPeer-Project25";
+			productName = "MultiPeer-Project25";
+			productReference = 0A42D33B22D0F0E600E2F0C1 /* MultiPeer-Project25.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0AE567EA228A101700A16E04 /* Project object */ = {
+		0A42D33322D0F0E600E2F0C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Alex Perucchini";
 				TargetAttributes = {
-					0AE567F1228A101700A16E04 = {
+					0A42D33A22D0F0E600E2F0C1 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 0AE567ED228A101700A16E04 /* Build configuration list for PBXProject "HangMan" */;
+			buildConfigurationList = 0A42D33622D0F0E600E2F0C1 /* Build configuration list for PBXProject "MultiPeer-Project25" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +107,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 0AE567E9228A101700A16E04;
-			productRefGroup = 0AE567F3228A101700A16E04 /* Products */;
+			mainGroup = 0A42D33222D0F0E600E2F0C1;
+			productRefGroup = 0A42D33C22D0F0E600E2F0C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0AE567F1228A101700A16E04 /* HangMan */,
+				0A42D33A22D0F0E600E2F0C1 /* MultiPeer-Project25 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0AE567F0228A101700A16E04 /* Resources */ = {
+		0A42D33922D0F0E600E2F0C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AE56800228A101800A16E04 /* LaunchScreen.storyboard in Resources */,
-				0AE567FD228A101800A16E04 /* Assets.xcassets in Resources */,
-				0AE5680A228A3A0200A16E04 /* words.txt in Resources */,
-				0AE567FB228A101700A16E04 /* Main.storyboard in Resources */,
+				0A42D34922D0F0E600E2F0C1 /* LaunchScreen.storyboard in Resources */,
+				0A42D34622D0F0E600E2F0C1 /* Assets.xcassets in Resources */,
+				0A42D34422D0F0E600E2F0C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0AE567EE228A101700A16E04 /* Sources */ = {
+		0A42D33722D0F0E600E2F0C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AE567F8228A101700A16E04 /* ViewController.swift in Sources */,
-				0AE567F6228A101700A16E04 /* AppDelegate.swift in Sources */,
+				0A42D34122D0F0E600E2F0C1 /* ViewController.swift in Sources */,
+				0A42D33F22D0F0E600E2F0C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0AE567F9228A101700A16E04 /* Main.storyboard */ = {
+		0A42D34222D0F0E600E2F0C1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0AE567FA228A101700A16E04 /* Base */,
+				0A42D34322D0F0E600E2F0C1 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0AE567FE228A101800A16E04 /* LaunchScreen.storyboard */ = {
+		0A42D34722D0F0E600E2F0C1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0AE567FF228A101800A16E04 /* Base */,
+				0A42D34822D0F0E600E2F0C1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +162,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0AE56802228A101800A16E04 /* Debug */ = {
+		0A42D34B22D0F0E600E2F0C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -227,7 +223,7 @@
 			};
 			name = Debug;
 		};
-		0AE56803228A101800A16E04 /* Release */ = {
+		0A42D34C22D0F0E600E2F0C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -282,62 +278,64 @@
 			};
 			name = Release;
 		};
-		0AE56805228A101800A16E04 /* Debug */ = {
+		0A42D34E22D0F0E600E2F0C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = HangMan/Info.plist;
+				DEVELOPMENT_TEAM = PS57R44942;
+				INFOPLIST_FILE = "MultiPeer-Project25/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ali3nlabs.HangMan;
+				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.MultiPeer-Project25";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0AE56806228A101800A16E04 /* Release */ = {
+		0A42D34F22D0F0E600E2F0C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = HangMan/Info.plist;
+				DEVELOPMENT_TEAM = PS57R44942;
+				INFOPLIST_FILE = "MultiPeer-Project25/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Ali3nlabs.HangMan;
+				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.MultiPeer-Project25";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AE567ED228A101700A16E04 /* Build configuration list for PBXProject "HangMan" */ = {
+		0A42D33622D0F0E600E2F0C1 /* Build configuration list for PBXProject "MultiPeer-Project25" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AE56802228A101800A16E04 /* Debug */,
-				0AE56803228A101800A16E04 /* Release */,
+				0A42D34B22D0F0E600E2F0C1 /* Debug */,
+				0A42D34C22D0F0E600E2F0C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0AE56804228A101800A16E04 /* Build configuration list for PBXNativeTarget "HangMan" */ = {
+		0A42D34D22D0F0E600E2F0C1 /* Build configuration list for PBXNativeTarget "MultiPeer-Project25" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AE56805228A101800A16E04 /* Debug */,
-				0AE56806228A101800A16E04 /* Release */,
+				0A42D34E22D0F0E600E2F0C1 /* Debug */,
+				0A42D34F22D0F0E600E2F0C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0AE567EA228A101700A16E04 /* Project object */;
+	rootObject = 0A42D33322D0F0E600E2F0C1 /* Project object */;
 }
