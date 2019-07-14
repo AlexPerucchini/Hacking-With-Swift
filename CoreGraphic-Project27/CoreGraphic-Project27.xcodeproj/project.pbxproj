@@ -7,33 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A42D35D22D3713D00E2F0C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D35C22D3713D00E2F0C1 /* AppDelegate.swift */; };
-		0A42D35F22D3713D00E2F0C1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D35E22D3713D00E2F0C1 /* GameScene.sks */; };
-		0A42D36322D3713D00E2F0C1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D36222D3713D00E2F0C1 /* GameScene.swift */; };
-		0A42D36522D3713D00E2F0C1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D36422D3713D00E2F0C1 /* GameViewController.swift */; };
-		0A42D36822D3713D00E2F0C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D36622D3713D00E2F0C1 /* Main.storyboard */; };
-		0A42D36A22D3714000E2F0C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D36922D3714000E2F0C1 /* Assets.xcassets */; };
-		0A42D36D22D3714000E2F0C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D36B22D3714000E2F0C1 /* LaunchScreen.storyboard */; };
-		0A5ED83F22D7F582005F6DC6 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ED83E22D7F582005F6DC6 /* level2.txt */; };
-		0A5ED84022D7F6AE005F6DC6 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ED83C22D7E74E005F6DC6 /* level1.txt */; };
+		0A5ED84E22DB87E1005F6DC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5ED84D22DB87E1005F6DC6 /* AppDelegate.swift */; };
+		0A5ED85022DB87E1005F6DC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5ED84F22DB87E1005F6DC6 /* ViewController.swift */; };
+		0A5ED85322DB87E1005F6DC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ED85122DB87E1005F6DC6 /* Main.storyboard */; };
+		0A5ED85522DB87E7005F6DC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ED85422DB87E7005F6DC6 /* Assets.xcassets */; };
+		0A5ED85822DB87E7005F6DC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ED85622DB87E7005F6DC6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A42D35922D3713D00E2F0C1 /* Maze-Porject26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maze-Porject26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A42D35C22D3713D00E2F0C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A42D35E22D3713D00E2F0C1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0A42D36222D3713D00E2F0C1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		0A42D36422D3713D00E2F0C1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		0A42D36722D3713D00E2F0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A42D36922D3714000E2F0C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A42D36C22D3714000E2F0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0A42D36E22D3714000E2F0C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A5ED83C22D7E74E005F6DC6 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
-		0A5ED83E22D7F582005F6DC6 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
+		0A5ED84A22DB87E1005F6DC6 /* CoreGraphic-Project27.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreGraphic-Project27.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A5ED84D22DB87E1005F6DC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0A5ED84F22DB87E1005F6DC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A5ED85222DB87E1005F6DC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0A5ED85422DB87E7005F6DC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A5ED85722DB87E7005F6DC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0A5ED85922DB87E7005F6DC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A42D35622D3713D00E2F0C1 /* Frameworks */ = {
+		0A5ED84722DB87E1005F6DC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,75 +35,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A42D35022D3713C00E2F0C1 = {
+		0A5ED84122DB87E1005F6DC6 = {
 			isa = PBXGroup;
 			children = (
-				0A42D35B22D3713D00E2F0C1 /* Maze-Porject26 */,
-				0A42D35A22D3713D00E2F0C1 /* Products */,
+				0A5ED84C22DB87E1005F6DC6 /* CoreGraphic-Project27 */,
+				0A5ED84B22DB87E1005F6DC6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A42D35A22D3713D00E2F0C1 /* Products */ = {
+		0A5ED84B22DB87E1005F6DC6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A42D35922D3713D00E2F0C1 /* Maze-Porject26.app */,
+				0A5ED84A22DB87E1005F6DC6 /* CoreGraphic-Project27.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A42D35B22D3713D00E2F0C1 /* Maze-Porject26 */ = {
+		0A5ED84C22DB87E1005F6DC6 /* CoreGraphic-Project27 */ = {
 			isa = PBXGroup;
 			children = (
-				0A5ED83C22D7E74E005F6DC6 /* level1.txt */,
-				0A5ED83E22D7F582005F6DC6 /* level2.txt */,
-				0A42D35C22D3713D00E2F0C1 /* AppDelegate.swift */,
-				0A42D35E22D3713D00E2F0C1 /* GameScene.sks */,
-				0A42D36222D3713D00E2F0C1 /* GameScene.swift */,
-				0A42D36422D3713D00E2F0C1 /* GameViewController.swift */,
-				0A42D36622D3713D00E2F0C1 /* Main.storyboard */,
-				0A42D36922D3714000E2F0C1 /* Assets.xcassets */,
-				0A42D36B22D3714000E2F0C1 /* LaunchScreen.storyboard */,
-				0A42D36E22D3714000E2F0C1 /* Info.plist */,
+				0A5ED84D22DB87E1005F6DC6 /* AppDelegate.swift */,
+				0A5ED84F22DB87E1005F6DC6 /* ViewController.swift */,
+				0A5ED85122DB87E1005F6DC6 /* Main.storyboard */,
+				0A5ED85422DB87E7005F6DC6 /* Assets.xcassets */,
+				0A5ED85622DB87E7005F6DC6 /* LaunchScreen.storyboard */,
+				0A5ED85922DB87E7005F6DC6 /* Info.plist */,
 			);
-			path = "Maze-Porject26";
+			path = "CoreGraphic-Project27";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A42D35822D3713D00E2F0C1 /* Maze-Porject26 */ = {
+		0A5ED84922DB87E1005F6DC6 /* CoreGraphic-Project27 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A42D37122D3714000E2F0C1 /* Build configuration list for PBXNativeTarget "Maze-Porject26" */;
+			buildConfigurationList = 0A5ED85C22DB87E7005F6DC6 /* Build configuration list for PBXNativeTarget "CoreGraphic-Project27" */;
 			buildPhases = (
-				0A42D35522D3713D00E2F0C1 /* Sources */,
-				0A42D35622D3713D00E2F0C1 /* Frameworks */,
-				0A42D35722D3713D00E2F0C1 /* Resources */,
+				0A5ED84622DB87E1005F6DC6 /* Sources */,
+				0A5ED84722DB87E1005F6DC6 /* Frameworks */,
+				0A5ED84822DB87E1005F6DC6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Maze-Porject26";
-			productName = "Maze-Porject26";
-			productReference = 0A42D35922D3713D00E2F0C1 /* Maze-Porject26.app */;
+			name = "CoreGraphic-Project27";
+			productName = "CoreGraphic-Project27";
+			productReference = 0A5ED84A22DB87E1005F6DC6 /* CoreGraphic-Project27.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A42D35122D3713C00E2F0C1 /* Project object */ = {
+		0A5ED84222DB87E1005F6DC6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Alex Perucchini";
 				TargetAttributes = {
-					0A42D35822D3713D00E2F0C1 = {
+					0A5ED84922DB87E1005F6DC6 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 0A42D35422D3713C00E2F0C1 /* Build configuration list for PBXProject "Maze-Porject26" */;
+			buildConfigurationList = 0A5ED84522DB87E1005F6DC6 /* Build configuration list for PBXProject "CoreGraphic-Project27" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,58 +107,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 0A42D35022D3713C00E2F0C1;
-			productRefGroup = 0A42D35A22D3713D00E2F0C1 /* Products */;
+			mainGroup = 0A5ED84122DB87E1005F6DC6;
+			productRefGroup = 0A5ED84B22DB87E1005F6DC6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A42D35822D3713D00E2F0C1 /* Maze-Porject26 */,
+				0A5ED84922DB87E1005F6DC6 /* CoreGraphic-Project27 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A42D35722D3713D00E2F0C1 /* Resources */ = {
+		0A5ED84822DB87E1005F6DC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A42D36822D3713D00E2F0C1 /* Main.storyboard in Resources */,
-				0A5ED83F22D7F582005F6DC6 /* level2.txt in Resources */,
-				0A42D35F22D3713D00E2F0C1 /* GameScene.sks in Resources */,
-				0A5ED84022D7F6AE005F6DC6 /* level1.txt in Resources */,
-				0A42D36A22D3714000E2F0C1 /* Assets.xcassets in Resources */,
-				0A42D36D22D3714000E2F0C1 /* LaunchScreen.storyboard in Resources */,
+				0A5ED85822DB87E7005F6DC6 /* LaunchScreen.storyboard in Resources */,
+				0A5ED85522DB87E7005F6DC6 /* Assets.xcassets in Resources */,
+				0A5ED85322DB87E1005F6DC6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A42D35522D3713D00E2F0C1 /* Sources */ = {
+		0A5ED84622DB87E1005F6DC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A42D36322D3713D00E2F0C1 /* GameScene.swift in Sources */,
-				0A42D36522D3713D00E2F0C1 /* GameViewController.swift in Sources */,
-				0A42D35D22D3713D00E2F0C1 /* AppDelegate.swift in Sources */,
+				0A5ED85022DB87E1005F6DC6 /* ViewController.swift in Sources */,
+				0A5ED84E22DB87E1005F6DC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0A42D36622D3713D00E2F0C1 /* Main.storyboard */ = {
+		0A5ED85122DB87E1005F6DC6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A42D36722D3713D00E2F0C1 /* Base */,
+				0A5ED85222DB87E1005F6DC6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0A42D36B22D3714000E2F0C1 /* LaunchScreen.storyboard */ = {
+		0A5ED85622DB87E7005F6DC6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A42D36C22D3714000E2F0C1 /* Base */,
+				0A5ED85722DB87E7005F6DC6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -178,7 +162,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0A42D36F22D3714000E2F0C1 /* Debug */ = {
+		0A5ED85A22DB87E7005F6DC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +223,7 @@
 			};
 			name = Debug;
 		};
-		0A42D37022D3714000E2F0C1 /* Release */ = {
+		0A5ED85B22DB87E7005F6DC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -294,36 +278,36 @@
 			};
 			name = Release;
 		};
-		0A42D37222D3714000E2F0C1 /* Debug */ = {
+		0A5ED85D22DB87E7005F6DC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PS57R44942;
-				INFOPLIST_FILE = "Maze-Porject26/Info.plist";
+				INFOPLIST_FILE = "CoreGraphic-Project27/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.Maze-Porject26";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.CoreGraphic-Project27";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
-		0A42D37322D3714000E2F0C1 /* Release */ = {
+		0A5ED85E22DB87E7005F6DC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PS57R44942;
-				INFOPLIST_FILE = "Maze-Porject26/Info.plist";
+				INFOPLIST_FILE = "CoreGraphic-Project27/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.Maze-Porject26";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ali3nlabs.CoreGraphic-Project27";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -333,25 +317,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A42D35422D3713C00E2F0C1 /* Build configuration list for PBXProject "Maze-Porject26" */ = {
+		0A5ED84522DB87E1005F6DC6 /* Build configuration list for PBXProject "CoreGraphic-Project27" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A42D36F22D3714000E2F0C1 /* Debug */,
-				0A42D37022D3714000E2F0C1 /* Release */,
+				0A5ED85A22DB87E7005F6DC6 /* Debug */,
+				0A5ED85B22DB87E7005F6DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A42D37122D3714000E2F0C1 /* Build configuration list for PBXNativeTarget "Maze-Porject26" */ = {
+		0A5ED85C22DB87E7005F6DC6 /* Build configuration list for PBXNativeTarget "CoreGraphic-Project27" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A42D37222D3714000E2F0C1 /* Debug */,
-				0A42D37322D3714000E2F0C1 /* Release */,
+				0A5ED85D22DB87E7005F6DC6 /* Debug */,
+				0A5ED85E22DB87E7005F6DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A42D35122D3713C00E2F0C1 /* Project object */;
+	rootObject = 0A5ED84222DB87E1005F6DC6 /* Project object */;
 }
