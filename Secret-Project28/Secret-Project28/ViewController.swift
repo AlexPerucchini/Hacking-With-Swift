@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import LocalAuthentication // used for device authentication
 
 class ViewController: UIViewController {
 
+    @IBOutlet var done: UIBarButtonItem!
     @IBOutlet var secret: UITextView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        // hide the barBarItem
+        self.done.isEnabled = false
+        self.done.tintColor = UIColor.clear
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,11 +31,40 @@ class ViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         notificationCenter.addObserver(self, selector: #selector(saveSecretMessage), name: UIApplication.willResignActiveNotification, object: nil)
-
+        
+        self.done.action = #selector(saveSecretMessage)
     }
+    
+    
+    //
 
     @IBAction func authenticateTapped(_ sender: Any) {
-        unlockSecretMessage()
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                [weak self] success, authenticationError in
+                
+                DispatchQueue.main.async {
+                    if success {
+                        self?.unlockSecretMessage()
+                    } else {
+                        // error
+                        let ac = UIAlertController(title: "Authentication failed", message: "You could not be verified; please try again.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                    }
+                }
+            }
+        } else {
+            // no biometry
+            let ac = UIAlertController(title: "Biometry not available", message: "You could not be verified; please try again.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
+        }
     }
     
     // this from project 19
@@ -56,6 +92,10 @@ class ViewController: UIViewController {
         secret.isHidden = false
         title = "Secret stuff!"
         
+        // show the barBarItem
+        done.isEnabled = true
+        done.tintColor = nil
+        
         if let text = KeychainWrapper.standard.string(forKey: "SecretMessage") {
             secret.text = text
         }
@@ -68,6 +108,10 @@ class ViewController: UIViewController {
         secret.resignFirstResponder()
         secret.isHidden = true
         title = "nothing to 👁 ⬇"
+        
+        // hid e the barBarItem agaub
+        done.isEnabled = false
+        done.tintColor = UIColor.clear
     }
     
 }

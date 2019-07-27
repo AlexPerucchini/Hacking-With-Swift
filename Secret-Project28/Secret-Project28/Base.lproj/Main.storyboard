@@ -45,8 +45,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TsK-wX-uXn"/>
+                    <navigationItem key="navigationItem" id="TsK-wX-uXn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="CJp-lZ-Chw"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="done" destination="CJp-lZ-Chw" id="uv8-lh-ezT"/>
                         <outlet property="secret" destination="lnG-Mg-D0I" id="HFn-oy-em6"/>
                     </connections>
                 </viewController>
