@@ -27,6 +27,7 @@ class GameViewController: UIViewController {
         angleChanged(angleSlider)
         velocityChanged(velocitySlider)
         
+
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
