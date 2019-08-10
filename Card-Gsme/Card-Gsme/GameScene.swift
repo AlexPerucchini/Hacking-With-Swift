@@ -10,9 +10,10 @@
 import SpriteKit
 
 enum CardLevel: CGFloat {
-    case board = 10
-    case moving = 100
-    case enlarged = 200
+    case board      = 10
+    case moving     = 100
+    case enlarged   = 200
+    case card       = 300
 }
 
 class GameScene: SKScene {
@@ -21,11 +22,18 @@ class GameScene: SKScene {
     
         let wolf = Card(cardType: .wolf)
         wolf.position = CGPoint(x: 100, y: 200)
+        wolf.zPosition = CardLevel.card.rawValue
         addChild(wolf)
         
         let bear = Card(cardType: .bear)
-        bear.position = CGPoint(x: 300, y: 200)
+        bear.position = CGPoint(x: 250, y: 200)
+        bear.zPosition = CardLevel.card.rawValue
         addChild(bear)
+        
+        let dragon = Card(cardType: .dragon)
+        dragon.position = CGPoint(x: 400, y: 200)
+        dragon.zPosition = CardLevel.card.rawValue
+        addChild(dragon)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,9 +48,14 @@ class GameScene: SKScene {
                 
                 let wiggleIn = SKAction.rotate(byAngle:  0.2, duration: 0.2)
                 let wiggleOut = SKAction.rotate(byAngle: -0.2, duration: 0.2)
-                let wiggle = SKAction.sequence([wiggleIn, wiggleOut])
+                let wiggle = SKAction.sequence([wiggleIn, wiggleOut, wiggleOut, wiggleIn])
                 
                 card.run(SKAction.repeatForever(wiggle), withKey: "wiggle")
+                
+                // flip card
+                if touch.tapCount > 1 {
+                    card.flip()
+                }
             }
         }
     }
