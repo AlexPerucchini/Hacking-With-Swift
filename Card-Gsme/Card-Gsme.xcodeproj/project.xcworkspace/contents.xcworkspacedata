@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:../Card-Gsme/Assets.xcassets"
+      name = "Assets.xcassets">
+      <FileRef
+         location = "group:/Users/alexp/Documents/code/hacking_w_swift/Card-Gsme/Card-Gsme/Card.swift">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "self:Card-Gsme.xcodeproj">
+   </FileRef>
+</Workspace>
